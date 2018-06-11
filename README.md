@@ -9,6 +9,8 @@ Elementary Calculus
 
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/04%20continous%20functions.ipynb">連続函数</a>
 
+* <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/05%20differentiable%20functions.ipynb">微分可能函数</a>
+
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/06%20Taylor%27s%20theorems.ipynb">Taylorの定理</a>
 
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/07%20example%20of%20asymptotic%20expansion.ipynb">漸近展開の有名な例</a>

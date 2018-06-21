@@ -9,3 +9,5 @@ Elementary Calculus
 6. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/06%20Taylor%27s%20theorems.ipynb">Taylorの定理</a>
 7. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/07%20example%20of%20asymptotic%20expansion.ipynb">漸近展開の有名な例</a>
 8. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/08%20convexity.ipynb">函数の凸性と不等式への応用</a>
+9. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/09%20integration.ipynb">積分</a>
+10. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/10%20Gauss%2C%20Gamma%2C%20Beta.ipynb">Gauss積分, ガンマ函数, ベータ函数</a>

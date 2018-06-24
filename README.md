@@ -11,3 +11,4 @@ Elementary Calculus
 8. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/08%20convexity.ipynb">函数の凸性と不等式への応用</a>
 9. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/09%20integration.ipynb">積分</a>
 10. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/10%20Gauss%2C%20Gamma%2C%20Beta.ipynb">Gauss積分, ガンマ函数, ベータ函数</a>
+11. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/11%20Kullback-Leibler%20information.ipynb">Kullback-Leibler情報量</a>

@@ -1,5 +1,10 @@
 # 微分積分学
 
+Author: 黒木玄 (Gen Kuroki)
+
+* Copyright 2018 Gen Kuroki
+* License: MIT https://opensource.org/licenses/MIT
+
 1. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/01%20convergence.ipynb">収束</a>
 2. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/02%20series.ipynb">級数</a>
 3. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/03%20pi%2C%20e%2C%20and%20Euler's%20%CE%B3.ipynb">π と e とEuler定数 γ</a>

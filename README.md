@@ -18,4 +18,8 @@ Author: 黒木玄 (Gen Kuroki)
 11. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/11%20Kullback-Leibler%20information.ipynb">Kullback-Leibler情報量</a>
 11. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/12%20Fourier%20analysis.ipynb">Fourier解析</a>
 
+<<<<<<< HEAD
 * <a href="https://github.com/genkuroki/Calculus/raw/master/Calculus-20180702-2.pdf">Download Calculus-20180702-2.pdf</a> (204 pages)
+=======
+* <a href="https://github.com/genkuroki/Calculus/raw/master/Calculus-20180702-2.pdf">Download Calculus-20180702-2.pdf</a> (206 pages)
+>>>>>>> origin/master

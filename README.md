@@ -4,6 +4,7 @@ Author: 黒木玄 (Gen Kuroki)
 
 * Copyright 2018 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
+* Repository: https://github.com/genkuroki/Calculus
 
 1. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/01%20convergence.ipynb">収束</a> (<a href="https://genkuroki.github.io/documents/Calculus/01%20convergence.pdf">pdf</a>)
 2. <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/02%20series.ipynb">級数</a> (<a href="https://genkuroki.github.io/documents/Calculus/02%20series.pdf">pdf</a>)

@@ -22,3 +22,7 @@ Author: 黒木玄 (Gen Kuroki)
 
 * <a href="https://genkuroki.github.io/documents/Calculus/Calculus.pdf">すべてをまとめたPDF</a>
 * <a href="https://genkuroki.github.io/documents/Calculus">分割されたPDF版のウェブサイト</a>
+
+**おまけ**
+
+* <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/Analysis%20A%202018.ipynb">解析学 A 2018</a>

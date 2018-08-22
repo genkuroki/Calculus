@@ -23,6 +23,10 @@ Author: 黒木玄 (Gen Kuroki)
 * <a href="https://genkuroki.github.io/documents/Calculus/Calculus.pdf">すべてをまとめたPDF</a>
 * <a href="https://genkuroki.github.io/documents/Calculus">分割されたPDF版のウェブサイト</a>
 
+**付録**
+
+* <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.ipynb">ディリクレ級数の滑らかなカットオフ</a> (<a href="https://genkuroki.github.io/documents/Calculus/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.pdf">PDF</a>)
+
 **おまけ**
 
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/Analysis%20A%202018.ipynb">解析学 A 2018</a>

@@ -26,6 +26,7 @@ Author: 黒木玄 (Gen Kuroki)
 **付録**
 
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.ipynb">ディリクレ級数の滑らかなカットオフ</a> (<a href="https://genkuroki.github.io/documents/Calculus/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.pdf">PDF</a>)
+* <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A02%20Hurwitz%20zeta%20function.ipynb">Hurwitzのゼータ函数の0以下の整数での特殊値と微係数</a> (<a href="https://genkuroki.github.io/documents/Calculus/A02%20Hurwitz%20zeta%20function.pdf">PDF</a>)
 
 **おまけ**
 

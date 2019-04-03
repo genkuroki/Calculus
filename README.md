@@ -2,7 +2,7 @@
 
 Author: 黒木玄 (Gen Kuroki)
 
-* Copyright 2018 Gen Kuroki
+* Copyright 2018,2019 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 

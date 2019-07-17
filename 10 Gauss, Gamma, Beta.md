@@ -1613,7 +1613,7 @@ $$
 
 と $\ds \left(1+\frac{t}{a}\right)^a$, $\ds \left(1-\frac{t}{b}\right)^{-b}$ がそれぞれ $a,b$ について単調増加, 単調減少することを用いて正当化せよ.
 
-**解答例:** 問題文の中で与えられた不等式の全体の逆元を取り, $a=m$, $b=n$ とおくと, 
+**解答例:** 問題文の中で与えられた不等式の全体の逆数を取り, $a=m$, $b=n$ とおくと, 
 
 $$
 \left(1-\frac{t}{n}\right)^n \leqq e^{-t} \leqq \left(1+\frac{t}{m}\right)^{-m} \qquad (-m<t<n)
@@ -1628,11 +1628,11 @@ B(p,q) =
 \int_0^\infty \frac{x^{p-1}}{(1+x)^{p+q}}\,dx
 $$
 
-において, それぞれ $x=t/n$, $x=t/m$ とおくことによって, $s,n>0$, $m>s$ のとき, 
+において, それぞれ $(p,q,x)=(s,n+1,t/n)$, $(p,q,x)=(s,m-s,t/m)$ とおくことによって, $s,n>0$, $m>s$ のとき, 
 
 $$
-n^s B(s,n+1) = \int_0^n t^{s-1}\left(1-\frac{t}{n}\right)^n\,dt, \qquad 
-m^s B(s,m-s) = \int_0^n t^{s-1}\left(1+\frac{t}{m}\right)^m\,dt
+n^s B(s,n+1) = \int_0^n t^{s-1}\left(1-\frac{t}{n}\right)^n\,dt, \quad 
+m^s B(s,m-s) = \int_0^\infty t^{s-1}\left(1+\frac{t}{m}\right)^{-m}\,dt
 $$
 
 が得られ, それぞれ, $n$, $m$ について単調増加, 単調減少することがわかる.  これらと $\ds\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\,dt$ を比較すると, 

@@ -28,6 +28,7 @@ Author: 黒木玄 (Gen Kuroki)
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.ipynb">ディリクレ級数の滑らかなカットオフ</a> (<a href="https://genkuroki.github.io/documents/Calculus/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.pdf">PDF</a>)
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A02%20Hurwitz%20zeta%20function.ipynb">Hurwitzのゼータ函数の話</a> (<a href="https://genkuroki.github.io/documents/Calculus/A02%20Hurwitz%20zeta%20function.pdf">PDF</a>)
 * <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A03%20Borwein%20integral.ipynb">Borwein積分</a> (<a href="https://genkuroki.github.io/documents/Calculus/A03%20Borwein%20integral.pdf">PDF</a>)
+* <a href="http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A04%20zeta%20functions%20of%20partition%20functions.ipynb">分配函数のゼータ函数</a> (<a href="https://genkuroki.github.io/documents/Calculus/A04%20zeta%20functions%20of%20partition%20functions.pdf">PDF</a>)
 
 **おまけ**
 

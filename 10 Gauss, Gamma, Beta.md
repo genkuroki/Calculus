@@ -6,20 +6,20 @@ jupyter:
       extension: .md
       format_name: markdown
       format_version: '1.1'
-      jupytext_version: 1.1.7
+      jupytext_version: 1.2.1
   kernelspec:
-    display_name: Julia 1.1.1
+    display_name: Julia 1.4.1
     language: julia
-    name: julia-1.1
+    name: julia-1.4
 ---
 
 # 10 Gauss積分, ガンマ函数, ベータ函数
 
 黒木玄
 
-2018-06-21～2019-04-03
+2018-06-21～2019-04-03, 2020-04-25
 
-* Copyright 2018,2019 Gen Kuroki
+* Copyright 2018,2019,2020 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 
@@ -64,7 +64,7 @@ $
 
 <!-- #region {"toc": true} -->
 <h1>目次<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Gauss積分" data-toc-modified-id="Gauss積分-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Gauss積分</a></span><ul class="toc-item"><li><span><a href="#Gauss積分の公式" data-toc-modified-id="Gauss積分の公式-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Gauss積分の公式</a></span></li><li><span><a href="#Gauss積分を使う簡単な計算例" data-toc-modified-id="Gauss積分を使う簡単な計算例-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Gauss積分を使う簡単な計算例</a></span><ul class="toc-item"><li><span><a href="#Gauss積分" data-toc-modified-id="Gauss積分-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Gauss積分</a></span></li><li><span><a href="#正規分布" data-toc-modified-id="正規分布-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>正規分布</a></span></li><li><span><a href="#Lebesgueの収束定理が成立しない場合2" data-toc-modified-id="Lebesgueの収束定理が成立しない場合2-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Lebesgueの収束定理が成立しない場合2</a></span></li><li><span><a href="#正規分布のモーメント" data-toc-modified-id="正規分布のモーメント-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>正規分布のモーメント</a></span></li></ul></li><li><span><a href="#Gauss分布のFourier変換" data-toc-modified-id="Gauss分布のFourier変換-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Gauss分布のFourier変換</a></span></li><li><span><a href="#Gauss積分の公式の導出" data-toc-modified-id="Gauss積分の公式の導出-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Gauss積分の公式の導出</a></span><ul class="toc-item"><li><span><a href="#方法1:-高さ-$z$-で輪切りにする方法" data-toc-modified-id="方法1:-高さ-$z$-で輪切りにする方法-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>方法1: 高さ $z$ で輪切りにする方法</a></span></li><li><span><a href="#方法2:-極座標を使う方法" data-toc-modified-id="方法2:-極座標を使う方法-1.4.2"><span class="toc-item-num">1.4.2&nbsp;&nbsp;</span>方法2: 極座標を使う方法</a></span></li><li><span><a href="#方法3:-$y=x-\tan\theta$-と変数変換する方法" data-toc-modified-id="方法3:-$y=x-\tan\theta$-と変数変換する方法-1.4.3"><span class="toc-item-num">1.4.3&nbsp;&nbsp;</span>方法3: $y=x \tan\theta$ と変数変換する方法</a></span></li></ul></li></ul></li><li><span><a href="#ガンマ函数とベータ函数" data-toc-modified-id="ガンマ函数とベータ函数-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>ガンマ函数とベータ函数</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数とベータ函数の定義" data-toc-modified-id="ガンマ函数とベータ函数の定義-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>ガンマ函数とベータ函数の定義</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数のGauss積分型表示" data-toc-modified-id="ガンマ函数のGauss積分型表示-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>ガンマ函数のGauss積分型表示</a></span></li><li><span><a href="#ガンマ函数のスケール変換" data-toc-modified-id="ガンマ函数のスケール変換-2.1.2"><span class="toc-item-num">2.1.2&nbsp;&nbsp;</span>ガンマ函数のスケール変換</a></span></li><li><span><a href="#ベータ函数の様々な表示" data-toc-modified-id="ベータ函数の様々な表示-2.1.3"><span class="toc-item-num">2.1.3&nbsp;&nbsp;</span>ベータ函数の様々な表示</a></span></li><li><span><a href="#ガンマ函数を定義する積分の被積分函数のグラフ" data-toc-modified-id="ガンマ函数を定義する積分の被積分函数のグラフ-2.1.4"><span class="toc-item-num">2.1.4&nbsp;&nbsp;</span>ガンマ函数を定義する積分の被積分函数のグラフ</a></span></li><li><span><a href="#ベータ函数を定義する積分の被積分函数のグラフ" data-toc-modified-id="ベータ函数を定義する積分の被積分函数のグラフ-2.1.5"><span class="toc-item-num">2.1.5&nbsp;&nbsp;</span>ベータ函数を定義する積分の被積分函数のグラフ</a></span></li></ul></li><li><span><a href="#ガンマ函数の特殊値と函数等式" data-toc-modified-id="ガンマ函数の特殊値と函数等式-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>ガンマ函数の特殊値と函数等式</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数の1と1/2での値." data-toc-modified-id="ガンマ函数の1と1/2での値.-2.2.1"><span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>ガンマ函数の1と1/2での値.</a></span></li><li><span><a href="#ガンマ函数の函数等式" data-toc-modified-id="ガンマ函数の函数等式-2.2.2"><span class="toc-item-num">2.2.2&nbsp;&nbsp;</span>ガンマ函数の函数等式</a></span></li><li><span><a href="#ガンマ函数の正の半整数での値" data-toc-modified-id="ガンマ函数の正の半整数での値-2.2.3"><span class="toc-item-num">2.2.3&nbsp;&nbsp;</span>ガンマ函数の正の半整数での値</a></span></li><li><span><a href="#ガンマ函数の-Ramanujan's-master-theorem-型解析接続" data-toc-modified-id="ガンマ函数の-Ramanujan's-master-theorem-型解析接続-2.2.4"><span class="toc-item-num">2.2.4&nbsp;&nbsp;</span>ガンマ函数の Ramanujan's master theorem 型解析接続</a></span></li></ul></li><li><span><a href="#Riemannのゼータ函数の積分表示と函数等式と負の整数と正の偶数における特殊値" data-toc-modified-id="Riemannのゼータ函数の積分表示と函数等式と負の整数と正の偶数における特殊値-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Riemannのゼータ函数の積分表示と函数等式と負の整数と正の偶数における特殊値</a></span><ul class="toc-item"><li><span><a href="#Riemannのゼータ函数の積分表示1" data-toc-modified-id="Riemannのゼータ函数の積分表示1-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Riemannのゼータ函数の積分表示1</a></span></li><li><span><a href="#Riemannのゼータ函数の0以下での整数での値" data-toc-modified-id="Riemannのゼータ函数の0以下での整数での値-2.3.2"><span class="toc-item-num">2.3.2&nbsp;&nbsp;</span>Riemannのゼータ函数の0以下での整数での値</a></span></li><li><span><a href="#交代版のRiemannのゼータ函数の積分表示" data-toc-modified-id="交代版のRiemannのゼータ函数の積分表示-2.3.3"><span class="toc-item-num">2.3.3&nbsp;&nbsp;</span>交代版のRiemannのゼータ函数の積分表示</a></span></li><li><span><a href="#Hurwitzのゼータ函数0以下の整数での特殊値がBernoulli多項式で書けること" data-toc-modified-id="Hurwitzのゼータ函数0以下の整数での特殊値がBernoulli多項式で書けること-2.3.4"><span class="toc-item-num">2.3.4&nbsp;&nbsp;</span>Hurwitzのゼータ函数0以下の整数での特殊値がBernoulli多項式で書けること</a></span></li><li><span><a href="#べき乗和のBernoulli多項式による表示" data-toc-modified-id="べき乗和のBernoulli多項式による表示-2.3.5"><span class="toc-item-num">2.3.5&nbsp;&nbsp;</span>べき乗和のBernoulli多項式による表示</a></span></li><li><span><a href="#Riemannのゼータ函数の積分表示2(テータ函数のMellin変換)と函数等式" data-toc-modified-id="Riemannのゼータ函数の積分表示2(テータ函数のMellin変換)と函数等式-2.3.6"><span class="toc-item-num">2.3.6&nbsp;&nbsp;</span>Riemannのゼータ函数の積分表示2(テータ函数のMellin変換)と函数等式</a></span></li></ul></li><li><span><a href="#ベータ函数とガンマ函数の関係" data-toc-modified-id="ベータ函数とガンマ函数の関係-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>ベータ函数とガンマ函数の関係</a></span><ul class="toc-item"><li><span><a href="#方法1:-置換積分と積分の順序交換のみを使う方法" data-toc-modified-id="方法1:-置換積分と積分の順序交換のみを使う方法-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>方法1: 置換積分と積分の順序交換のみを使う方法</a></span></li><li><span><a href="#方法2:-極座標変換を使う方法" data-toc-modified-id="方法2:-極座標変換を使う方法-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>方法2: 極座標変換を使う方法</a></span></li><li><span><a href="#方法3:-y-=-tx-と変数変換する方法" data-toc-modified-id="方法3:-y-=-tx-と変数変換する方法-2.4.3"><span class="toc-item-num">2.4.3&nbsp;&nbsp;</span>方法3: y = tx と変数変換する方法</a></span></li><li><span><a href="#ガンマ函数の1/2での値をベータ函数経由で計算" data-toc-modified-id="ガンマ函数の1/2での値をベータ函数経由で計算-2.4.4"><span class="toc-item-num">2.4.4&nbsp;&nbsp;</span>ガンマ函数の1/2での値をベータ函数経由で計算</a></span></li><li><span><a href="#ベータ函数の応用の雑多の例" data-toc-modified-id="ベータ函数の応用の雑多の例-2.4.5"><span class="toc-item-num">2.4.5&nbsp;&nbsp;</span>ベータ函数の応用の雑多の例</a></span></li><li><span><a href="#B(s,-1/2)の級数展開" data-toc-modified-id="B(s,-1/2)の級数展開-2.4.6"><span class="toc-item-num">2.4.6&nbsp;&nbsp;</span>B(s, 1/2)の級数展開</a></span></li></ul></li><li><span><a href="#ガンマ函数の無限積表示" data-toc-modified-id="ガンマ函数の無限積表示-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>ガンマ函数の無限積表示</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数に関するGaussの公式" data-toc-modified-id="ガンマ函数に関するGaussの公式-2.5.1"><span class="toc-item-num">2.5.1&nbsp;&nbsp;</span>ガンマ函数に関するGaussの公式</a></span></li><li><span><a href="#指数函数の上からと下からの評価を用いた厳密な議論" data-toc-modified-id="指数函数の上からと下からの評価を用いた厳密な議論-2.5.2"><span class="toc-item-num">2.5.2&nbsp;&nbsp;</span>指数函数の上からと下からの評価を用いた厳密な議論</a></span></li><li><span><a href="#ガンマ函数に関するWeierstrassの公式" data-toc-modified-id="ガンマ函数に関するWeierstrassの公式-2.5.3"><span class="toc-item-num">2.5.3&nbsp;&nbsp;</span>ガンマ函数に関するWeierstrassの公式</a></span></li></ul></li><li><span><a href="#sinとガンマ函数の関係" data-toc-modified-id="sinとガンマ函数の関係-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>sinとガンマ函数の関係</a></span><ul class="toc-item"><li><span><a href="#sinの奇数倍角の公式を用いたsinの無限積表示の導出" data-toc-modified-id="sinの奇数倍角の公式を用いたsinの無限積表示の導出-2.6.1"><span class="toc-item-num">2.6.1&nbsp;&nbsp;</span>sinの奇数倍角の公式を用いたsinの無限積表示の導出</a></span></li><li><span><a href="#Euler's-reflection-formula" data-toc-modified-id="Euler's-reflection-formula-2.6.2"><span class="toc-item-num">2.6.2&nbsp;&nbsp;</span>Euler's reflection formula</a></span></li><li><span><a href="#cosの偶数倍角の公式を用いたcosの無限積表示の導出" data-toc-modified-id="cosの偶数倍角の公式を用いたcosの無限積表示の導出-2.6.3"><span class="toc-item-num">2.6.3&nbsp;&nbsp;</span>cosの偶数倍角の公式を用いたcosの無限積表示の導出</a></span></li></ul></li><li><span><a href="#Wallisの公式" data-toc-modified-id="Wallisの公式-2.7"><span class="toc-item-num">2.7&nbsp;&nbsp;</span>Wallisの公式</a></span><ul class="toc-item"><li><span><a href="#2種類のWallisの公式の同値性" data-toc-modified-id="2種類のWallisの公式の同値性-2.7.1"><span class="toc-item-num">2.7.1&nbsp;&nbsp;</span>2種類のWallisの公式の同値性</a></span></li><li><span><a href="#sinの無限積表示を用いたWallisの公式の証明" data-toc-modified-id="sinの無限積表示を用いたWallisの公式の証明-2.7.2"><span class="toc-item-num">2.7.2&nbsp;&nbsp;</span>sinの無限積表示を用いたWallisの公式の証明</a></span></li><li><span><a href="#ベータ函数の極限でガンマ函数が得らえることを用いWallisの公式の証明" data-toc-modified-id="ベータ函数の極限でガンマ函数が得らえることを用いWallisの公式の証明-2.7.3"><span class="toc-item-num">2.7.3&nbsp;&nbsp;</span>ベータ函数の極限でガンマ函数が得らえることを用いWallisの公式の証明</a></span></li><li><span><a href="#Wallisの公式からGauss積分の値を得る方法" data-toc-modified-id="Wallisの公式からGauss積分の値を得る方法-2.7.4"><span class="toc-item-num">2.7.4&nbsp;&nbsp;</span>Wallisの公式からGauss積分の値を得る方法</a></span></li></ul></li><li><span><a href="#Legendre's-duplication-formula" data-toc-modified-id="Legendre's-duplication-formula-2.8"><span class="toc-item-num">2.8&nbsp;&nbsp;</span>Legendre's duplication formula</a></span></li><li><span><a href="#sinとガンマ函数の関係の再証明" data-toc-modified-id="sinとガンマ函数の関係の再証明-2.9"><span class="toc-item-num">2.9&nbsp;&nbsp;</span>sinとガンマ函数の関係の再証明</a></span><ul class="toc-item"><li><span><a href="#Legendre's-duplication-formula-を用いた-Euler's-reflection-formula-の再証明" data-toc-modified-id="Legendre's-duplication-formula-を用いた-Euler's-reflection-formula-の再証明-2.9.1"><span class="toc-item-num">2.9.1&nbsp;&nbsp;</span>Legendre's duplication formula を用いた Euler's reflection formula の再証明</a></span></li><li><span><a href="#sinの無限積表示の再証明" data-toc-modified-id="sinの無限積表示の再証明-2.9.2"><span class="toc-item-num">2.9.2&nbsp;&nbsp;</span>sinの無限積表示の再証明</a></span></li></ul></li><li><span><a href="#Lerchの定理とゼータ正規化積" data-toc-modified-id="Lerchの定理とゼータ正規化積-2.10"><span class="toc-item-num">2.10&nbsp;&nbsp;</span>Lerchの定理とゼータ正規化積</a></span><ul class="toc-item"><li><span><a href="#Lerchの定理-(Hurwitzのゼータ函数とガンマ函数の関係)" data-toc-modified-id="Lerchの定理-(Hurwitzのゼータ函数とガンマ函数の関係)-2.10.1"><span class="toc-item-num">2.10.1&nbsp;&nbsp;</span>Lerchの定理 (Hurwitzのゼータ函数とガンマ函数の関係)</a></span></li><li><span><a href="#ゼータ正規化積" data-toc-modified-id="ゼータ正規化積-2.10.2"><span class="toc-item-num">2.10.2&nbsp;&nbsp;</span>ゼータ正規化積</a></span></li><li><span><a href="#Lerchの定理を用いたBinetの公式の証明" data-toc-modified-id="Lerchの定理を用いたBinetの公式の証明-2.10.3"><span class="toc-item-num">2.10.3&nbsp;&nbsp;</span>Lerchの定理を用いたBinetの公式の証明</a></span></li></ul></li></ul></li><li><span><a href="#Stirlingの公式とLaplaceの方法" data-toc-modified-id="Stirlingの公式とLaplaceの方法-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Stirlingの公式とLaplaceの方法</a></span><ul class="toc-item"><li><span><a href="#Stirlingの公式" data-toc-modified-id="Stirlingの公式-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Stirlingの公式</a></span></li><li><span><a href="#Wallisの公式のStirlingの公式を使った証明" data-toc-modified-id="Wallisの公式のStirlingの公式を使った証明-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Wallisの公式のStirlingの公式を使った証明</a></span></li><li><span><a href="#Gauss's-multiplication-formula" data-toc-modified-id="Gauss's-multiplication-formula-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Gauss's multiplication formula</a></span></li><li><span><a href="#Laplaceの方法" data-toc-modified-id="Laplaceの方法-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Laplaceの方法</a></span><ul class="toc-item"><li><span><a href="#Laplaceの方法の解説" data-toc-modified-id="Laplaceの方法の解説-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Laplaceの方法の解説</a></span></li><li><span><a href="#Laplaceの方法によるStirlingの公式の導出" data-toc-modified-id="Laplaceの方法によるStirlingの公式の導出-3.4.2"><span class="toc-item-num">3.4.2&nbsp;&nbsp;</span>Laplaceの方法によるStirlingの公式の導出</a></span></li></ul></li><li><span><a href="#Laplaceの方法の弱形" data-toc-modified-id="Laplaceの方法の弱形-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Laplaceの方法の弱形</a></span></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Gauss積分" data-toc-modified-id="Gauss積分-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Gauss積分</a></span><ul class="toc-item"><li><span><a href="#Gauss積分の公式" data-toc-modified-id="Gauss積分の公式-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Gauss積分の公式</a></span></li><li><span><a href="#Gauss積分を使う簡単な計算例" data-toc-modified-id="Gauss積分を使う簡単な計算例-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Gauss積分を使う簡単な計算例</a></span><ul class="toc-item"><li><span><a href="#Gauss積分" data-toc-modified-id="Gauss積分-1.2.1"><span class="toc-item-num">1.2.1&nbsp;&nbsp;</span>Gauss積分</a></span></li><li><span><a href="#正規分布" data-toc-modified-id="正規分布-1.2.2"><span class="toc-item-num">1.2.2&nbsp;&nbsp;</span>正規分布</a></span></li><li><span><a href="#Lebesgueの収束定理が成立しない場合2" data-toc-modified-id="Lebesgueの収束定理が成立しない場合2-1.2.3"><span class="toc-item-num">1.2.3&nbsp;&nbsp;</span>Lebesgueの収束定理が成立しない場合2</a></span></li><li><span><a href="#正規分布のモーメント" data-toc-modified-id="正規分布のモーメント-1.2.4"><span class="toc-item-num">1.2.4&nbsp;&nbsp;</span>正規分布のモーメント</a></span></li></ul></li><li><span><a href="#Gauss分布のFourier変換" data-toc-modified-id="Gauss分布のFourier変換-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Gauss分布のFourier変換</a></span></li><li><span><a href="#Gauss積分の公式の導出" data-toc-modified-id="Gauss積分の公式の導出-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Gauss積分の公式の導出</a></span><ul class="toc-item"><li><span><a href="#方法1:-高さ-$z$-で輪切りにする方法" data-toc-modified-id="方法1:-高さ-$z$-で輪切りにする方法-1.4.1"><span class="toc-item-num">1.4.1&nbsp;&nbsp;</span>方法1: 高さ $z$ で輪切りにする方法</a></span></li><li><span><a href="#方法2:-極座標を使う方法" data-toc-modified-id="方法2:-極座標を使う方法-1.4.2"><span class="toc-item-num">1.4.2&nbsp;&nbsp;</span>方法2: 極座標を使う方法</a></span></li><li><span><a href="#方法3:-$y=x-\tan\theta$-と変数変換する方法" data-toc-modified-id="方法3:-$y=x-\tan\theta$-と変数変換する方法-1.4.3"><span class="toc-item-num">1.4.3&nbsp;&nbsp;</span>方法3: $y=x \tan\theta$ と変数変換する方法</a></span></li></ul></li></ul></li><li><span><a href="#ガンマ函数とベータ函数" data-toc-modified-id="ガンマ函数とベータ函数-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>ガンマ函数とベータ函数</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数とベータ函数の定義" data-toc-modified-id="ガンマ函数とベータ函数の定義-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>ガンマ函数とベータ函数の定義</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数のGauss積分型表示" data-toc-modified-id="ガンマ函数のGauss積分型表示-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>ガンマ函数のGauss積分型表示</a></span></li><li><span><a href="#ガンマ函数のスケール変換" data-toc-modified-id="ガンマ函数のスケール変換-2.1.2"><span class="toc-item-num">2.1.2&nbsp;&nbsp;</span>ガンマ函数のスケール変換</a></span></li><li><span><a href="#ベータ函数の様々な表示" data-toc-modified-id="ベータ函数の様々な表示-2.1.3"><span class="toc-item-num">2.1.3&nbsp;&nbsp;</span>ベータ函数の様々な表示</a></span></li><li><span><a href="#ガンマ函数を定義する積分の被積分函数のグラフ" data-toc-modified-id="ガンマ函数を定義する積分の被積分函数のグラフ-2.1.4"><span class="toc-item-num">2.1.4&nbsp;&nbsp;</span>ガンマ函数を定義する積分の被積分函数のグラフ</a></span></li><li><span><a href="#ベータ函数を定義する積分の被積分函数のグラフ" data-toc-modified-id="ベータ函数を定義する積分の被積分函数のグラフ-2.1.5"><span class="toc-item-num">2.1.5&nbsp;&nbsp;</span>ベータ函数を定義する積分の被積分函数のグラフ</a></span></li></ul></li><li><span><a href="#ガンマ函数の特殊値と函数等式" data-toc-modified-id="ガンマ函数の特殊値と函数等式-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>ガンマ函数の特殊値と函数等式</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数の1と1/2での値." data-toc-modified-id="ガンマ函数の1と1/2での値.-2.2.1"><span class="toc-item-num">2.2.1&nbsp;&nbsp;</span>ガンマ函数の1と1/2での値.</a></span></li><li><span><a href="#ガンマ函数の函数等式" data-toc-modified-id="ガンマ函数の函数等式-2.2.2"><span class="toc-item-num">2.2.2&nbsp;&nbsp;</span>ガンマ函数の函数等式</a></span></li><li><span><a href="#ガンマ函数の正の半整数での値" data-toc-modified-id="ガンマ函数の正の半整数での値-2.2.3"><span class="toc-item-num">2.2.3&nbsp;&nbsp;</span>ガンマ函数の正の半整数での値</a></span></li><li><span><a href="#ガンマ函数の-Ramanujan's-master-theorem-型解析接続" data-toc-modified-id="ガンマ函数の-Ramanujan's-master-theorem-型解析接続-2.2.4"><span class="toc-item-num">2.2.4&nbsp;&nbsp;</span>ガンマ函数の Ramanujan's master theorem 型解析接続</a></span></li></ul></li><li><span><a href="#Riemannのゼータ函数の積分表示と函数等式と負の整数と正の偶数における特殊値" data-toc-modified-id="Riemannのゼータ函数の積分表示と函数等式と負の整数と正の偶数における特殊値-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Riemannのゼータ函数の積分表示と函数等式と負の整数と正の偶数における特殊値</a></span><ul class="toc-item"><li><span><a href="#Riemannのゼータ函数の積分表示1" data-toc-modified-id="Riemannのゼータ函数の積分表示1-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Riemannのゼータ函数の積分表示1</a></span></li><li><span><a href="#Riemannのゼータ函数の0以下での整数での値" data-toc-modified-id="Riemannのゼータ函数の0以下での整数での値-2.3.2"><span class="toc-item-num">2.3.2&nbsp;&nbsp;</span>Riemannのゼータ函数の0以下での整数での値</a></span></li><li><span><a href="#交代版のRiemannのゼータ函数の積分表示" data-toc-modified-id="交代版のRiemannのゼータ函数の積分表示-2.3.3"><span class="toc-item-num">2.3.3&nbsp;&nbsp;</span>交代版のRiemannのゼータ函数の積分表示</a></span></li><li><span><a href="#Hurwitzのゼータ函数0以下の整数での特殊値がBernoulli多項式で書けること" data-toc-modified-id="Hurwitzのゼータ函数0以下の整数での特殊値がBernoulli多項式で書けること-2.3.4"><span class="toc-item-num">2.3.4&nbsp;&nbsp;</span>Hurwitzのゼータ函数0以下の整数での特殊値がBernoulli多項式で書けること</a></span></li><li><span><a href="#べき乗和のBernoulli多項式による表示" data-toc-modified-id="べき乗和のBernoulli多項式による表示-2.3.5"><span class="toc-item-num">2.3.5&nbsp;&nbsp;</span>べき乗和のBernoulli多項式による表示</a></span></li><li><span><a href="#Riemannのゼータ函数の積分表示2(テータ函数のMellin変換)と函数等式" data-toc-modified-id="Riemannのゼータ函数の積分表示2(テータ函数のMellin変換)と函数等式-2.3.6"><span class="toc-item-num">2.3.6&nbsp;&nbsp;</span>Riemannのゼータ函数の積分表示2(テータ函数のMellin変換)と函数等式</a></span></li></ul></li><li><span><a href="#ベータ函数とガンマ函数の関係" data-toc-modified-id="ベータ函数とガンマ函数の関係-2.4"><span class="toc-item-num">2.4&nbsp;&nbsp;</span>ベータ函数とガンマ函数の関係</a></span><ul class="toc-item"><li><span><a href="#方法1:-置換積分と積分の順序交換のみを使う方法" data-toc-modified-id="方法1:-置換積分と積分の順序交換のみを使う方法-2.4.1"><span class="toc-item-num">2.4.1&nbsp;&nbsp;</span>方法1: 置換積分と積分の順序交換のみを使う方法</a></span></li><li><span><a href="#方法2:-極座標変換を使う方法" data-toc-modified-id="方法2:-極座標変換を使う方法-2.4.2"><span class="toc-item-num">2.4.2&nbsp;&nbsp;</span>方法2: 極座標変換を使う方法</a></span></li><li><span><a href="#方法3:-y-=-tx-と変数変換する方法" data-toc-modified-id="方法3:-y-=-tx-と変数変換する方法-2.4.3"><span class="toc-item-num">2.4.3&nbsp;&nbsp;</span>方法3: y = tx と変数変換する方法</a></span></li><li><span><a href="#ガンマ函数の1/2での値をベータ函数経由で計算" data-toc-modified-id="ガンマ函数の1/2での値をベータ函数経由で計算-2.4.4"><span class="toc-item-num">2.4.4&nbsp;&nbsp;</span>ガンマ函数の1/2での値をベータ函数経由で計算</a></span></li><li><span><a href="#ベータ函数の応用の雑多の例" data-toc-modified-id="ベータ函数の応用の雑多の例-2.4.5"><span class="toc-item-num">2.4.5&nbsp;&nbsp;</span>ベータ函数の応用の雑多の例</a></span></li><li><span><a href="#B(s,-1/2)の級数展開" data-toc-modified-id="B(s,-1/2)の級数展開-2.4.6"><span class="toc-item-num">2.4.6&nbsp;&nbsp;</span>B(s, 1/2)の級数展開</a></span></li></ul></li><li><span><a href="#ガンマ函数の無限積表示" data-toc-modified-id="ガンマ函数の無限積表示-2.5"><span class="toc-item-num">2.5&nbsp;&nbsp;</span>ガンマ函数の無限積表示</a></span><ul class="toc-item"><li><span><a href="#ガンマ函数に関するGaussの公式" data-toc-modified-id="ガンマ函数に関するGaussの公式-2.5.1"><span class="toc-item-num">2.5.1&nbsp;&nbsp;</span>ガンマ函数に関するGaussの公式</a></span></li><li><span><a href="#指数函数の上からと下からの評価を用いた厳密な議論" data-toc-modified-id="指数函数の上からと下からの評価を用いた厳密な議論-2.5.2"><span class="toc-item-num">2.5.2&nbsp;&nbsp;</span>指数函数の上からと下からの評価を用いた厳密な議論</a></span></li><li><span><a href="#ガンマ函数に関するWeierstrassの公式" data-toc-modified-id="ガンマ函数に関するWeierstrassの公式-2.5.3"><span class="toc-item-num">2.5.3&nbsp;&nbsp;</span>ガンマ函数に関するWeierstrassの公式</a></span></li></ul></li><li><span><a href="#sinとガンマ函数の関係" data-toc-modified-id="sinとガンマ函数の関係-2.6"><span class="toc-item-num">2.6&nbsp;&nbsp;</span>sinとガンマ函数の関係</a></span><ul class="toc-item"><li><span><a href="#sinの奇数倍角の公式を用いたsinの無限積表示の導出" data-toc-modified-id="sinの奇数倍角の公式を用いたsinの無限積表示の導出-2.6.1"><span class="toc-item-num">2.6.1&nbsp;&nbsp;</span>sinの奇数倍角の公式を用いたsinの無限積表示の導出</a></span></li><li><span><a href="#Euler's-reflection-formula" data-toc-modified-id="Euler's-reflection-formula-2.6.2"><span class="toc-item-num">2.6.2&nbsp;&nbsp;</span>Euler's reflection formula</a></span></li><li><span><a href="#cosの偶数倍角の公式を用いたcosの無限積表示の導出" data-toc-modified-id="cosの偶数倍角の公式を用いたcosの無限積表示の導出-2.6.3"><span class="toc-item-num">2.6.3&nbsp;&nbsp;</span>cosの偶数倍角の公式を用いたcosの無限積表示の導出</a></span></li></ul></li><li><span><a href="#Wallisの公式" data-toc-modified-id="Wallisの公式-2.7"><span class="toc-item-num">2.7&nbsp;&nbsp;</span>Wallisの公式</a></span><ul class="toc-item"><li><span><a href="#2種類のWallisの公式の同値性" data-toc-modified-id="2種類のWallisの公式の同値性-2.7.1"><span class="toc-item-num">2.7.1&nbsp;&nbsp;</span>2種類のWallisの公式の同値性</a></span></li><li><span><a href="#sinの無限積表示を用いたWallisの公式の証明" data-toc-modified-id="sinの無限積表示を用いたWallisの公式の証明-2.7.2"><span class="toc-item-num">2.7.2&nbsp;&nbsp;</span>sinの無限積表示を用いたWallisの公式の証明</a></span></li><li><span><a href="#ベータ函数の極限でガンマ函数が得らえることを用いWallisの公式の証明" data-toc-modified-id="ベータ函数の極限でガンマ函数が得らえることを用いWallisの公式の証明-2.7.3"><span class="toc-item-num">2.7.3&nbsp;&nbsp;</span>ベータ函数の極限でガンマ函数が得らえることを用いWallisの公式の証明</a></span></li><li><span><a href="#Wallisの公式からGauss積分の値を得る方法" data-toc-modified-id="Wallisの公式からGauss積分の値を得る方法-2.7.4"><span class="toc-item-num">2.7.4&nbsp;&nbsp;</span>Wallisの公式からGauss積分の値を得る方法</a></span></li></ul></li><li><span><a href="#Legendre's-duplication-formula" data-toc-modified-id="Legendre's-duplication-formula-2.8"><span class="toc-item-num">2.8&nbsp;&nbsp;</span>Legendre's duplication formula</a></span></li><li><span><a href="#sinとガンマ函数の関係の再証明" data-toc-modified-id="sinとガンマ函数の関係の再証明-2.9"><span class="toc-item-num">2.9&nbsp;&nbsp;</span>sinとガンマ函数の関係の再証明</a></span><ul class="toc-item"><li><span><a href="#Legendre's-duplication-formula-を用いた-Euler's-reflection-formula-の再証明" data-toc-modified-id="Legendre's-duplication-formula-を用いた-Euler's-reflection-formula-の再証明-2.9.1"><span class="toc-item-num">2.9.1&nbsp;&nbsp;</span>Legendre's duplication formula を用いた Euler's reflection formula の再証明</a></span></li><li><span><a href="#sinの無限積表示の再証明" data-toc-modified-id="sinの無限積表示の再証明-2.9.2"><span class="toc-item-num">2.9.2&nbsp;&nbsp;</span>sinの無限積表示の再証明</a></span></li></ul></li><li><span><a href="#Lerchの定理とゼータ正規化積" data-toc-modified-id="Lerchの定理とゼータ正規化積-2.10"><span class="toc-item-num">2.10&nbsp;&nbsp;</span>Lerchの定理とゼータ正規化積</a></span><ul class="toc-item"><li><span><a href="#Lerchの定理-(Hurwitzのゼータ函数とガンマ函数の関係)" data-toc-modified-id="Lerchの定理-(Hurwitzのゼータ函数とガンマ函数の関係)-2.10.1"><span class="toc-item-num">2.10.1&nbsp;&nbsp;</span>Lerchの定理 (Hurwitzのゼータ函数とガンマ函数の関係)</a></span></li><li><span><a href="#digamma,-trigamma,-polygamma-函数" data-toc-modified-id="digamma,-trigamma,-polygamma-函数-2.10.2"><span class="toc-item-num">2.10.2&nbsp;&nbsp;</span>digamma, trigamma, polygamma 函数</a></span></li><li><span><a href="#ゼータ正規化積" data-toc-modified-id="ゼータ正規化積-2.10.3"><span class="toc-item-num">2.10.3&nbsp;&nbsp;</span>ゼータ正規化積</a></span></li><li><span><a href="#Lerchの定理を用いたBinetの公式の証明" data-toc-modified-id="Lerchの定理を用いたBinetの公式の証明-2.10.4"><span class="toc-item-num">2.10.4&nbsp;&nbsp;</span>Lerchの定理を用いたBinetの公式の証明</a></span></li></ul></li></ul></li><li><span><a href="#Stirlingの公式とLaplaceの方法" data-toc-modified-id="Stirlingの公式とLaplaceの方法-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>Stirlingの公式とLaplaceの方法</a></span><ul class="toc-item"><li><span><a href="#Stirlingの公式" data-toc-modified-id="Stirlingの公式-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Stirlingの公式</a></span></li><li><span><a href="#Wallisの公式のStirlingの公式を使った証明" data-toc-modified-id="Wallisの公式のStirlingの公式を使った証明-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Wallisの公式のStirlingの公式を使った証明</a></span></li><li><span><a href="#Gauss's-multiplication-formula" data-toc-modified-id="Gauss's-multiplication-formula-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Gauss's multiplication formula</a></span></li><li><span><a href="#Laplaceの方法" data-toc-modified-id="Laplaceの方法-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Laplaceの方法</a></span><ul class="toc-item"><li><span><a href="#Laplaceの方法の解説" data-toc-modified-id="Laplaceの方法の解説-3.4.1"><span class="toc-item-num">3.4.1&nbsp;&nbsp;</span>Laplaceの方法の解説</a></span></li><li><span><a href="#Laplaceの方法によるStirlingの公式の導出" data-toc-modified-id="Laplaceの方法によるStirlingの公式の導出-3.4.2"><span class="toc-item-num">3.4.2&nbsp;&nbsp;</span>Laplaceの方法によるStirlingの公式の導出</a></span></li></ul></li><li><span><a href="#Laplaceの方法の弱形" data-toc-modified-id="Laplaceの方法の弱形-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Laplaceの方法の弱形</a></span></li></ul></li></ul></div>
 <!-- #endregion -->
 
 ```julia
@@ -77,7 +77,8 @@ endof(a) = lastindex(a)
 linspace(start, stop, length) = range(start, stop, length=length)
 
 using Plots
-gr(); ENV["PLOTS_TEST"] = "true"
+#gr(); ENV["PLOTS_TEST"] = "true"
+pyplot(fmt=:svg)
 #clibrary(:colorcet)
 clibrary(:misc)
 
@@ -102,6 +103,8 @@ const latex = sympy.latex
 using LaTeXStrings
 
 using SpecialFunctions
+SpecialFunctions.lgamma(x::Real) = logabsgamma(x)[1]
+
 using QuadGK
 ```
 
@@ -222,7 +225,8 @@ $n$ が大きくなると, $f_n(x)$ の「分布」は広く拡がる. $\QED$
 ```julia
 f(n,x) = exp(-x^2/n)/√(n*π)
 x = -10.0:0.05:12.0
-cycls = [:solid, :dash, :dashdot, :dashdotdot]
+#cycls = [:solid, :dash, :dashdot, :dashdotdot]
+cycls = [:solid, :dash, :dashdot, :dot]
 ns = [1,2,3,4,5,10, 30, 100]
 P = plot(size=(420,250))
 for k in 1:lastindex(ns)
@@ -2397,7 +2401,7 @@ $$
 
 の第8節を参照せよ.
 
-
+<!-- #region -->
 ### Lerchの定理とゼータ正規化積
 
 #### Lerchの定理 (Hurwitzのゼータ函数とガンマ函数の関係)
@@ -2450,7 +2454,7 @@ $$
 &
 \log\Gamma(x) =
 \lim_{n\to\infty}\left(
-\log n! + n\log x - \log x - \log(x+1) - \cdots - \log(x+n)
+\log n! + x\log n - \log x - \log(x+1) - \cdots - \log(x+n)
 \right),
 \\ &
 (\log\Gamma(x))' =
@@ -2513,6 +2517,51 @@ $$
 
 (6) $\log\Gamma(1/2)=\log\sqrt{\pi}$ なので, 上の結果より, $F(x)=-\log\sqrt{2\pi}$ であることがわかる. $\QED$
 
+
+#### digamma, trigamma, polygamma 函数
+
+上のLerchの定理の証明中に出て来た**対数ガンマ函数** $\log\Gamma(x)$ の導函数達を**polygamma函数**と呼ぶ.  例えば, 以下の $\psi(x)$, $\psi'(x)$ はそれぞれ**digamma函数**, **trigamma函数**と呼ばれる:
+
+$$
+\begin{aligned}
+&
+\log\Gamma(x) =
+\lim_{n\to\infty}\left(
+\log n! + x\log n - \log x - \log(x+1) - \cdots - \log(x+n)
+\right),
+\\ &
+\psi(x) = (\log\Gamma(x))' =
+\lim_{n\to\infty}\left(
+\log n - \frac{1}{x} - \frac{1}{x+1} - \cdots - \frac{1}{x+n}
+\right),
+\\ &
+\psi'(x) = (\log\Gamma(x))'' =
+\lim_{n\to\infty}\left(
+\frac{1}{x^2} + \frac{1}{(x+1)^2} + \cdots + \frac{1}{(x+n)^2}
+\right) = \zeta(2,x).
+\end{aligned}
+$$
+
+これらの式を見ればわかるように, $m\geqq 3$ に対するtrigamma函数以降の $m$-th polygamma函数 $\psi^{(m-2)}(x)=(\log\Gamma(x))^{(m-1)}$ はHurwitzのゼータ函数の特別な場合 $\zeta(m-1, x)$ に一致する.
+
+調和級数 $1+1/2+\cdots+1/n$ と $\log n$ の差が $n\to\infty$ で収束し, その収束先はEuler定数と呼ばれ, $\gamma=0.5772\cdots$ と書かれる. その事実はdigamma函数を使うと
+
+$$
+-\psi(1) = \gamma = 0.5772\cdots
+$$
+
+と表わされる.  digamma函数の $-1$ 倍 $-\psi(x)$ は一般化された調和級数 $1/x+1/(x+1)+\cdots+1/(x+n)$ と $\log n$ の差の極限に等しいので, digamma函数の $-1$ 倍はEuler定数の一般化であるとも考えられる.
+
+digamma函数 $\psi(\alpha)$ は
+
+$$
+\psi(\alpha) = \frac{\Gamma'(\alpha)}{\Gamma(\alpha)} = 
+\frac{1}{\Gamma(\alpha)}\int_0^\infty e^{-x} x^{\alpha-1}\log x\,dx
+$$
+
+とも書ける. これはパラメーター ($\alpha$, $\theta=1$) のガンマ分布に従う確率変数 $X$ の対数 $\log X$ の期待値に等しい.  統計学におけるガンマ分布の取り扱いではdigamma函数などが必要になる.  Lerchの定理の証明を通して, 対数ガンマ函数の導函数の様子がよくわかるという感覚を身に付けておくと, その感覚はガンマ分布の統計学でも役に立つことになる.
+
+
 #### ゼータ正規化積 
 
 数列 $a_n$ に対して,
@@ -2555,7 +2604,7 @@ $$
 $$
 
 の積バージョンである. 
-
+<!-- #endregion -->
 
 #### Lerchの定理を用いたBinetの公式の証明
 

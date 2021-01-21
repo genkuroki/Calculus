@@ -8,18 +8,18 @@ jupyter:
       format_version: '1.1'
       jupytext_version: 1.2.1
   kernelspec:
-    display_name: Julia 1.4.1
+    display_name: Julia 1.6.0-beta1
     language: julia
-    name: julia-1.4
+    name: julia-1.6
 ---
 
 # Hurwitzのゼータ函数の話
 
 黒木玄
 
-2019-04-01～2019-07-13, 2020-04-25
+2019-04-01～2019-07-13, 2020-04-25, 2021-01-22
 
-* Copyright 2018,2019,2020 Gen Kuroki
+* Copyright 2018,2019,2020,2021 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 
@@ -915,7 +915,7 @@ $$
 これは通常の(1重の)Hurwitzのゼータ函数 $\zeta(s,x)$ である. 左辺の積分に
 
 $$
-\int_0^1 \frac{\beta\,e^{-\beta x}}{1-e^{-\beta}}\,d\beta = e^{-\beta x}
+\int_0^1 \frac{\beta\,e^{-\beta (x+t)}}{1-e^{-\beta}}\,dt = e^{-\beta x}
 $$
 
 を適用すると, 

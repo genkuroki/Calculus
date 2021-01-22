@@ -922,13 +922,29 @@ $$
 
 $$
 \int_0^1 \zeta(s, x+t)\,dt =
-\frac{1}{\Gamma(s)}\int_0^\infty e^{-\beta x} \beta^{s-2}\,d\beta = \frac{1}{x^{s-1}}.
+\frac{1}{(s-1)\Gamma(s-1)}\int_0^\infty e^{-\beta x} \beta^{s-2}\,d\beta = 
+\frac{1}{s-1}\frac{1}{x^{s-1}}.
 $$
 
-以上の計算結果は1重のHurwitzのゼータ函数の移動平均が $s$ を $-1$ シフトした0重のHurwitzのゼータ函数になることを意味している. 
+以上の計算結果は1重のHurwitzのゼータ函数の移動平均が $s$ を $-1$ シフトした0重のHurwitzのゼータ函数の $1/(s-1)$ 倍になることを意味している. 
 
 以上の計算は以下のように自明な一般化を持つ.
 
+```julia
+f(s, x) = quadgk(t -> zeta(s, x+t), 0, 1)[1]
+g(s, x) = 1/((s-1)*x^(s-1))
+
+PP = []
+for s in [-5:0; 2:4]
+    x = range(s > 1 ? 0.1 : eps(), 1; length=100)
+    P = plot(x, f.(s, x); label="∫ζ(s,x+t)dt")
+    plot!(x, g.(s, x); label="1/((s-1)xˢ⁻¹)", ls=:dash)
+    plot!(; xlim=(-0.05, 1.05))
+    plot!(; title="s = $s", titlefontsize=8)
+    push!(PP, P)
+end
+plot(PP...; layout=(3, 3), size=(800, 520))
+```
 
 ### 多重Hurwitzゼータ函数の移動平均
 

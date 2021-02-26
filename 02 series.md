@@ -8,9 +8,9 @@ jupyter:
       format_version: '1.1'
       jupytext_version: 1.2.1
   kernelspec:
-    display_name: Julia 1.4.1
+    display_name: Julia 1.6.0-rc1 depwarn -O3
     language: julia
-    name: julia-1.4
+    name: julia-1.6-depwarn-o3
 ---
 
 # 02 級数
@@ -81,7 +81,7 @@ using Plots
 #gr(); ENV["PLOTS_TEST"] = "true"
 pyplot(fmt=:svg)
 #clibrary(:colorcet)
-clibrary(:misc)
+#clibrary(:misc)
 
 function pngplot(P...; kwargs...)
     sleep(0.1)
@@ -493,6 +493,56 @@ $$
 $$
 
 これは, $a\leqq 1$ ならば $R\to\infty$ で無限大に発散し, $a>1$ ならば有限の値に収束する. $\QED$
+
+
+**問題:** 正の整数 $n$ について $n$ が十進表示で $9$ を含まないときに $a_n=1/n$ と定め, 含むとき $a_n=0$ と定める. このとき $\ds\sum_{n=1}^\infty a_n < 30$ となることを示せ.
+
+**解答例:** $1+1/2+1/3+1/4+1/5+1/6+1/7+1/8 = 2.717857\cdots < 3$ である. そして, 各々の $m=1,2,\ldots,8$ について, 十進表示で9を含まないちょうど $k$ 桁の正の整数で左端の数字が $m$ であるものの全体の個数は $9^{k-1}$ である. ゆえに, ちょうど $k$ 桁の $n$ に関する和は $\ds\sum_{n=10^{k-1}}^{10^k-1} a_n < 3\times\frac{9^{k-1}}{10^{k-1}}$ となる. これより, 
+
+$$
+\sum_{n=1}^\infty a_n < 
+3\sum_{k=1}^\infty \frac{9^{k-1}}{10^{k-1}} =
+\frac{3}{1-9/10} = 30.
+$$
+
+これで $\ds\sum_{n=1}^\infty a_n < 30$ が示された. $\QED$
+
+
+`s[k]` = (ちょうど `k` 桁の数で9を含まないものの逆数の和) を８桁まで計算してみよう.
+
+```julia
+@time s = [sum(1/n for n in 10^(k-1):10^k-1 if !in('9', string(n))) for k in 1:8]
+```
+
+`k` が大きなとき, `k` が1つ増えるごとに `s[k]` は約 $0.9$ 倍になって行く. 
+
+```julia
+s[2:end] ./ s[1:end-1]
+```
+
+`S[k]` = (桁数が `k` 以下の数で9を含まないものの逆数の和) を計算してみよう.
+
+```julia
+S = cumsum(s)
+```
+
+以上の数値計算の結果を認めて次の問題を解いてみよ.
+
+**問題:** 正の整数 $n$ について $n$ が十進表示で $9$ を含まないときに $a_n=1/n$ と定め, 含むとき $a_n=0$ と定める. このとき $\ds\sum_{n=1}^\infty a_n < 23$ となることを示せ. 
+
+**解答例:** $\ds\sum_{n=1000}^{9999} a_n = 1.633\cdots < 1.64$ であるから, $k \geqq 5$ のとき $\ds\sum_{n=10^{k-1}}^{10^k-1} a_n < 1.64\times\frac{9^{k-4}}{10^{k-4}}$ となる. さらに, $\ds\sum_{n=1}^{9999} a_n = 8.223\cdots < 8.23$ なので, 
+
+$$
+\sum_{n=1}^\infty a_n < 
+8.23 + 1.64\sum_{k=5}^\infty \frac{9^{k-4}}{10^{k-4}} =
+8.23 + 1.08\frac{9/10}{1-9/10} = 22.99 < 23.
+$$
+
+これで $\ds\sum_{n=1}^\infty a_n < 23$ が示された. $\QED$
+
+```julia
+8 + 23//100 + (1 + 64//100)*(9//10)/(1 - 9//10)
+```
 
 **問題:** 以上の例以外の絶対収束級数の例について調べ, ノートにまとめよ.
 

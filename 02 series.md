@@ -1,25 +1,26 @@
 ---
 jupyter:
   jupytext:
+    cell_metadata_json: true
     formats: ipynb,md
     text_representation:
       extension: .md
       format_name: markdown
-      format_version: '1.1'
-      jupytext_version: 1.2.1
+      format_version: '1.3'
+      jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.6.0-rc1 depwarn -O3
+    display_name: Julia 1.9.1
     language: julia
-    name: julia-1.6-depwarn-o3
+    name: julia-1.9
 ---
 
 # 02 級数
 
 黒木玄
 
-2018-04-18～2019-04-03, 2020-04-25
+2018-04-18～2019-04-03, 2020-04-25, 2023-06-22
 
-* Copyright 2018,2019,2020 Gen Kuroki
+* Copyright 2018,2019,2020,2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 
@@ -79,9 +80,11 @@ linspace(start, stop, length) = range(start, stop, length=length)
 
 using Plots
 #gr(); ENV["PLOTS_TEST"] = "true"
-pyplot(fmt=:svg)
+#pyplot(fmt=:svg)
+pyplot()
 #clibrary(:colorcet)
 #clibrary(:misc)
+default(fmt=:png)
 
 function pngplot(P...; kwargs...)
     sleep(0.1)
@@ -105,6 +108,27 @@ lgamma(x::Real) = logabsgamma(x)[1]
 
 using QuadGK
 using PyPlot: PyPlot, plt
+```
+
+```julia
+# Override the Base.show definition of SymPy.jl:
+# https://github.com/JuliaPy/SymPy.jl/blob/29c5bfd1d10ac53014fa7fef468bc8deccadc2fc/src/types.jl#L87-L105
+
+@eval SymPy function Base.show(io::IO, ::MIME"text/latex", x::SymbolicObject)
+    print(io, as_markdown("\\displaystyle " * sympy.latex(x, mode="plain", fold_short_frac=false)))
+end
+@eval SymPy function Base.show(io::IO, ::MIME"text/latex", x::AbstractArray{Sym})
+    function toeqnarray(x::Vector{Sym})
+        a = join(["\\displaystyle " * sympy.latex(x[i]) for i in 1:length(x)], "\\\\")
+        """\\left[ \\begin{array}{r}$a\\end{array} \\right]"""
+    end
+    function toeqnarray(x::AbstractArray{Sym,2})
+        sz = size(x)
+        a = join([join("\\displaystyle " .* map(sympy.latex, x[i,:]), "&") for i in 1:sz[1]], "\\\\")
+        "\\left[ \\begin{array}{" * repeat("r",sz[2]) * "}" * a * "\\end{array}\\right]"
+    end
+    print(io, as_markdown(toeqnarray(x)))
+end
 ```
 
 ## 級数
@@ -1857,11 +1881,11 @@ $$
 となることが知られている. 次のセルを見よ. $\QED$
 
 ```julia
-q = symbols("q")
+q, n = symbols("q n")
 N = 5
 M = N*(3N-1)÷2
-@time series(sum((-1)^n*q^(n*(3n-1)÷2) for n in -M:M), q, n=M+1) |>display
-@time series(prod(1-q^n for n in 1:M), q, n=M+1) |> display
+@time series(sympy.summation((-1)^n*q^(n*(3n-1)÷2), (n, -M, M)), q, n=M+1) |>display
+@time series(sympy.product(1 - q^n, (n, 1, M)).expand(), q, n=M+1) |> display
 ```
 
 ### 絶対収束する無限積の収束先が積の順序によらないこと

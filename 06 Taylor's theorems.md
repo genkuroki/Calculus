@@ -8,7 +8,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia 1.9.3
     language: julia
     name: julia-1.9
 ---
@@ -17,9 +17,9 @@ jupyter:
 
 黒木玄
 
-2018-04-20～2019-04-03, 2020-08-18, 2023-06-02～2023-06-22
+2018-04-20～2019-04-03, 2020-08-18, 2023-06-02～2023-09-15
 
-* Copyright 2018,2019,2020,2023 Gen Kuroki
+* Copyright 2018, 2019, 2020, 2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 
@@ -29,7 +29,7 @@ jupyter:
 
 * https://genkuroki.github.io/documents/Calculus/06%20Taylor%27s%20theorems.pdf
 
-このファイルは <a href="https://juliabox.com">Julia Box</a> で利用できる.
+<!-- このファイルは <a href="https://juliabox.com">Julia Box</a> で利用できる. -->
 
 自分のパソコンに<a href="https://julialang.org/">Julia言語</a>をインストールしたい場合には
 
@@ -288,6 +288,24 @@ $$
 なので上の定理が得られる. $\QED$
 <!-- #endregion -->
 
+__系:__
+$$
+R_n = (x-a)^n \int_0^1 f^{(n)}(a + (x-a)t) \frac{(1-t)^{n-1}}{(n-1)!}\,dt.
+$$
+
+__証明:__ 上の定理で得た公式中の積分変数 $x_n$ を $x_n = a + (x-a)t = (1-t)a+tx$ によって $t$ に変換すると, $x_n$ を $a$ から $x$ まで動かすことは $t$ を $0$ から $1$ まで動かすことに対応し, $dx_n = (x-a)\,dt$, $x - x_n = (1-t)(x-a)$ なので, 
+
+$$
+\begin{aligned}
+R_n
+&= \int_0^1 f^{(n)}(a + (x-a)t) \frac{(1-t)^{n-1}(x-a)^{n-1}}{(n-1)!}\,(x-a)\,dt
+\\
+&= (x-a)^n \int_0^1 f^{(n)}(a + (x-a)t) \frac{(1-t)^{n-1}}{(n-1)!}\,dt.
+\qquad \QED
+\end{aligned}
+$$
+
+
 **注意:** $f$ が $C^{n+1}$ 級函数ならば, 上の定理の $n$ の場合の結果から, 部分積分によって
 
 $$
@@ -341,6 +359,7 @@ $f$ は $C^n$ 級函数であるとする. そのとき $f^{(n)}$ は連続函�
 
 $$
 f^{(n)}(\alpha) \frac{(x-a)^n}{n!}\leqq  R_n \leqq f^{(n)}(\beta) \frac{(x-a)^n}{n!}
+\tag{$*$}
 $$
 
 が成立する. なぜならば $R_n$ の1重積分表示
@@ -373,6 +392,62 @@ $$
 
 の形もよく使われる. この形の剰余項を**Lagrangeの剰余項**と呼ぶらしい.
 
+
+__例:__ $f(x)=\sqrt{x}$, $x=10$, $a=9$, $n=2$ の場合.  $n=2$ の場合のTaylorの公式は
+
+$$
+f(x) = f(a) + f'(a)(x-a) + R_2.
+$$
+
+そして, 上の($*$)より, $f''(t)$ の $a\leqq t\leqq x$ での最小値と最大値をそれぞれ $f''(\alpha)$, $f''(\beta)$ と書くと,
+
+$$
+f''(\alpha)\frac{(x-a)^2}{2} \leqq R_2 \leqq f''(\beta)\frac{(x-a)^2}{2}.
+$$
+
+$f(x)=\sqrt{x}$, $0<a<x$ のとき,
+
+$$
+f'(t) = \dfrac{1}{2\sqrt{t}}, \quad
+f''(t)=-\frac{1}{4t\sqrt{t}}
+$$
+
+なので, 特に $f''(t)$ は単調増加函数になり, $\alpha=a$, $\beta=x$ となるので, 
+
+$$
+-\frac{(x-a)^2}{8a\sqrt{a}} \leqq R_2 \leqq -\frac{(x-a)^2}{8x\sqrt{x}}.
+$$
+
+これの全体に $f(a)+f'(a)(x-a)=\sqrt{a} + \dfrac{x-a}{2\sqrt{a}}$ を足すと,
+
+$$
+\sqrt{a} + \frac{x-a}{2\sqrt{a}} - \frac{(x-a)^2}{8a\sqrt{a}}
+\leqq \sqrt{x} \leqq
+\sqrt{a} + \frac{x-a}{2\sqrt{a}} - \frac{(x-a)^2}{8x\sqrt{x}}.
+$$
+
+$a=9$, $x=10$ のとき, $\sqrt{9}=3$, $\sqrt{10}<\sqrt{16}=4$ なので,
+
+$$
+3 + \frac{1}{2\cdot 3} - \frac{1}{8\cdot 9\cdot 3}
+\leqq \sqrt{10} <
+3 + \frac{1}{2\cdot 3} - \frac{1}{8\cdot 10\cdot 4}.
+$$
+
+ゆえに,
+
+$$
+3.162 < \sqrt{10} < 3.164.
+$$
+
+このようにして $\sqrt{10} \approx 3.1622776601683795$ の値を小数点以下第2桁まで求めることができる. $\QED$
+
+```julia
+@show 3 + 1/(2*3)
+@show 3 + 1/(2*3) - 1/(8*9*3)
+@show 3 + 1/(2*3) - 1/(8*10*4)
+@show √10;
+```
 
 #### 積分型剰余項の書き直し: Cauchyの剰余項
 

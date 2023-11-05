@@ -9,7 +9,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia 1.9.3
     language: julia
     name: julia-1.9
 ---
@@ -18,7 +18,7 @@ jupyter:
 
 黒木玄
 
-2018-06-21～2019-04-03, 2020-04-25, 2023-06-22
+2018-06-21～2019-04-03, 2020-04-25, 2023-06-22, 2023-11-05
 
 * Copyright 2018,2019,2020,2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
@@ -962,7 +962,7 @@ $$
 
 と書けるので, $s-2 > -1$ すなわち $s>1$ ならば収束している. $\QED$
 
-**解答例:** 上の問題の結果より, $\ds\frac{1}{n^s} = \frac{1}{\Gamma(s)}\int_0^\infty e^{-nx}x^{s-1}\,dx$ なので,
+**解答例:** ガンマ函数のスケール変換に関する問題の結果より, $\ds\frac{1}{n^s} = \frac{1}{\Gamma(s)}\int_0^\infty e^{-nx}x^{s-1}\,dx$ なので,
 
 $$
 \begin{aligned}

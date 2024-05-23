@@ -8,7 +8,7 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia 1.9.4
     language: julia
     name: julia-1.9
 ---
@@ -488,11 +488,13 @@ $$
 より
 
 $$
-\int_{-\infty}^\infty D_N(x)\,dx = \frac{2}{\pi}\int_0^\infty \frac{\sin(2\pi Nx)}{x}\,dx =
-\frac{2}{\pi}\int_0^\infty \frac{\sin(2\pi Nx)}{x}\,dx = \frac{2}{\pi}\frac{\pi}{2}=1.
+\int_{-\infty}^\infty D_N(x)\,dx =
+\frac{2}{\pi}\int_0^\infty \frac{\sin(2\pi Nx)}{x}\,dx =
+\frac{2}{\pi}\int_0^\infty \frac{\sin t}{t}\,dt =
+\frac{2}{\pi}\frac{\pi}{2} = 1.
 $$
 
-三番目の等号で $x=t/(2\pi N)$ と置換して計算した.  この公式は条件収束する積分の公式であることに注意せよ.
+2番目の等号で $x=t/(2\pi N)$ と置換して計算した.  この公式は条件収束する積分の公式であることに注意せよ.
 
 上の公式(**Dirichlet積分の公式**と呼ばれる)については
 

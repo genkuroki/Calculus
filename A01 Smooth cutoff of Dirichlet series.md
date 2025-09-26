@@ -9,18 +9,18 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia
     language: julia
-    name: julia-1.9
+    name: julia
 ---
 
 # ディリクレ級数の滑らかなカットオフ
 
 黒木玄
 
-2018-08-12～2019-04-03, 2020-04-25, 2023-06-22
+2018-08-12～2019-04-03, 2020-04-25, 2023-06-22, 2025-09-26
 
-* Copyright 2018,2019,2020,2023 Gen Kuroki
+* Copyright 2018,2019,2020,2023,2025 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 
@@ -60,8 +60,50 @@ $
 
 <!-- #region {"toc": true} -->
 <h1>目次<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#Mellin変換とその逆変換" data-toc-modified-id="Mellin変換とその逆変換-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Mellin変換とその逆変換</a></span><ul class="toc-item"><li><span><a href="#Mellin変換" data-toc-modified-id="Mellin変換-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Mellin変換</a></span><ul class="toc-item"><li><span><a href="#exp(-x²)のMellin変換" data-toc-modified-id="exp(-x²)のMellin変換-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>exp(-x²)のMellin変換</a></span></li><li><span><a href="#exp(-x)のMellin変換" data-toc-modified-id="exp(-x)のMellin変換-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>exp(-x)のMellin変換</a></span></li><li><span><a href="#exp(-x^m)のMellin変換" data-toc-modified-id="exp(-x^m)のMellin変換-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>exp(-x^m)のMellin変換</a></span></li><li><span><a href="#急減少函数のMellin変換" data-toc-modified-id="急減少函数のMellin変換-1.1.4"><span class="toc-item-num">1.1.4&nbsp;&nbsp;</span>急減少函数のMellin変換</a></span></li></ul></li><li><span><a href="#逆Mellin変換" data-toc-modified-id="逆Mellin変換-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>逆Mellin変換</a></span></li></ul></li><li><span><a href="#Dirichlet級数の滑らかなカットオフ" data-toc-modified-id="Dirichlet級数の滑らかなカットオフ-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Dirichlet級数の滑らかなカットオフ</a></span><ul class="toc-item"><li><span><a href="#滑らかなカットオフの定義" data-toc-modified-id="滑らかなカットオフの定義-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>滑らかなカットオフの定義</a></span></li><li><span><a href="#滑らかなカットオフの逆Mellin変換表示" data-toc-modified-id="滑らかなカットオフの逆Mellin変換表示-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>滑らかなカットオフの逆Mellin変換表示</a></span></li><li><span><a href="#Re-s-<-0-および-s-=-0-での様子" data-toc-modified-id="Re-s-<-0-および-s-=-0-での様子-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Re s &lt; 0 および s = 0 での様子</a></span></li></ul></li><li><span><a href="#滑らかなカットオフの例" data-toc-modified-id="滑らかなカットオフの例-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>滑らかなカットオフの例</a></span><ul class="toc-item"><li><span><a href="#ζ(s)の場合" data-toc-modified-id="ζ(s)の場合-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>ζ(s)の場合</a></span></li><li><span><a href="#極を持たない交代Dirichlet級数の場合" data-toc-modified-id="極を持たない交代Dirichlet級数の場合-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>極を持たない交代Dirichlet級数の場合</a></span><ul class="toc-item"><li><span><a href="#η(x)-=-exp(-x^2)-の場合" data-toc-modified-id="η(x)-=-exp(-x^2)-の場合-3.2.1"><span class="toc-item-num">3.2.1&nbsp;&nbsp;</span>η(x) = exp(-x^2) の場合</a></span></li><li><span><a href="#η(x)-=-exp(-x)-の場合" data-toc-modified-id="η(x)-=-exp(-x)-の場合-3.2.2"><span class="toc-item-num">3.2.2&nbsp;&nbsp;</span>η(x) = exp(-x) の場合</a></span></li></ul></li><li><span><a href="#-ζ'(s)の場合" data-toc-modified-id="-ζ'(s)の場合-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>-ζ'(s)の場合</a></span></li><li><span><a href="#-(d/ds)log-ζ(s)の場合" data-toc-modified-id="-(d/ds)log-ζ(s)の場合-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>-(d/ds)log ζ(s)の場合</a></span></li></ul></li><li><span><a href="#Riemannのゼータ函数の非自明な零点の分布" data-toc-modified-id="Riemannのゼータ函数の非自明な零点の分布-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Riemannのゼータ函数の非自明な零点の分布</a></span></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#Mellin変換とその逆変換" data-toc-modified-id="Mellin変換とその逆変換-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>Mellin変換とその逆変換</a></span><ul class="toc-item"><li><span><a href="#Mellin変換" data-toc-modified-id="Mellin変換-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Mellin変換</a></span><ul class="toc-item"><li><span><a href="#exp(-x²)のMellin変換" data-toc-modified-id="exp(-x²)のMellin変換-1.1.1"><span class="toc-item-num">1.1.1&nbsp;&nbsp;</span>exp(-x²)のMellin変換</a></span></li><li><span><a href="#exp(-x)のMellin変換" data-toc-modified-id="exp(-x)のMellin変換-1.1.2"><span class="toc-item-num">1.1.2&nbsp;&nbsp;</span>exp(-x)のMellin変換</a></span></li><li><span><a href="#exp(-x^m)のMellin変換" data-toc-modified-id="exp(-x^m)のMellin変換-1.1.3"><span class="toc-item-num">1.1.3&nbsp;&nbsp;</span>exp(-x^m)のMellin変換</a></span></li><li><span><a href="#急減少函数のMellin変換" data-toc-modified-id="急減少函数のMellin変換-1.1.4"><span class="toc-item-num">1.1.4&nbsp;&nbsp;</span>急減少函数のMellin変換</a></span></li></ul></li><li><span><a href="#逆Mellin変換" data-toc-modified-id="逆Mellin変換-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>逆Mellin変換</a></span></li></ul></li><li><span><a href="#Dirichlet級数の滑らかなカットオフ" data-toc-modified-id="Dirichlet級数の滑らかなカットオフ-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>Dirichlet級数の滑らかなカットオフ</a></span><ul class="toc-item"><li><span><a href="#滑らかなカットオフの定義" data-toc-modified-id="滑らかなカットオフの定義-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>滑らかなカットオフの定義</a></span></li><li><span><a href="#滑らかなカットオフの逆Mellin変換表示" data-toc-modified-id="滑らかなカットオフの逆Mellin変換表示-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>滑らかなカットオフの逆Mellin変換表示</a></span></li><li><span><a href="#Re-s-&lt;-0-および-s-=-0-での様子" data-toc-modified-id="Re-s-&lt;-0-および-s-=-0-での様子-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Re s &lt; 0 および s = 0 での様子</a></span></li></ul></li><li><span><a href="#滑らかなカットオフの例" data-toc-modified-id="滑らかなカットオフの例-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>滑らかなカットオフの例</a></span><ul class="toc-item"><li><span><a href="#ζ(s)の場合" data-toc-modified-id="ζ(s)の場合-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>ζ(s)の場合</a></span></li><li><span><a href="#極を持たない交代Dirichlet級数の場合" data-toc-modified-id="極を持たない交代Dirichlet級数の場合-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>極を持たない交代Dirichlet級数の場合</a></span><ul class="toc-item"><li><span><a href="#η(x)-=-exp(-x^2)-の場合" data-toc-modified-id="η(x)-=-exp(-x^2)-の場合-3.2.1"><span class="toc-item-num">3.2.1&nbsp;&nbsp;</span>η(x) = exp(-x^2) の場合</a></span></li><li><span><a href="#η(x)-=-exp(-x)-の場合" data-toc-modified-id="η(x)-=-exp(-x)-の場合-3.2.2"><span class="toc-item-num">3.2.2&nbsp;&nbsp;</span>η(x) = exp(-x) の場合</a></span></li></ul></li><li><span><a href="#-ζ'(s)の場合" data-toc-modified-id="-ζ'(s)の場合-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>-ζ'(s)の場合</a></span></li><li><span><a href="#-(d/ds)log-ζ(s)の場合" data-toc-modified-id="-(d/ds)log-ζ(s)の場合-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>-(d/ds)log ζ(s)の場合</a></span></li></ul></li><li><span><a href="#Riemannのゼータ函数の非自明な零点の分布" data-toc-modified-id="Riemannのゼータ函数の非自明な零点の分布-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>Riemannのゼータ函数の非自明な零点の分布</a></span></li></ul></div>
 <!-- #endregion -->
+
+```julia
+# Google Colabと自分のパソコンの両方で使えるようにするための工夫
+
+using Pkg
+
+"""すでにPkg.add済みのパッケージのリスト"""
+_packages_added = [sort!(readdir(Sys.STDLIB));
+    sort!([info.name for (uuid, info) in Pkg.dependencies() if info.is_direct_dep])]
+
+"""_packages_added内にないパッケージをPkg.addする"""
+add_pkg_if_not_added_yet(pkg) = if isnothing(Base.find_package(pkg))
+    println(stderr, "# $(pkg).jl is not added yet, so let's add it.")
+    Pkg.add(pkg)
+end
+
+"""expr::Exprからusing内の`.`を含まないモジュール名を抽出"""
+function find_using_pkgs(expr::Expr)
+    pkgs = String[]
+    function traverse(expr::Expr)
+        if expr.head == :using
+            for arg in expr.args
+                if arg.head == :. && length(arg.args) == 1
+                    push!(pkgs, string(arg.args[1]))
+                elseif arg.head == :(:) && length(arg.args[1].args) == 1
+                    push!(pkgs, string(arg.args[1].args[1]))
+                end
+            end
+        else
+            for arg in expr.args arg isa Expr && traverse(arg) end
+        end
+    end
+    traverse(expr)
+    pkgs
+end
+
+"""必要そうなPkg.addを追加するマクロ"""
+macro autoadd(expr)
+    pkgs = find_using_pkgs(expr)
+    :(add_pkg_if_not_added_yet.($(pkgs)); $expr)
+end
+```
 
 ```julia
 using Base.MathConstants
@@ -72,7 +114,7 @@ const e = ℯ
 endof(a) = lastindex(a)
 linspace(start, stop, length) = range(start, stop, length=length)
 
-using Plots
+@autoadd using Plots
 #pyplot(fmt=:svg)
 default(bglegend=RGBA(1.0, 1.0, 1.0, 0.5))
 #clibrary(:colorcet)
@@ -92,25 +134,26 @@ showimg(mime, fn) = open(fn) do f
     display("text/html", """<img src="data:$mime;base64,$base64">""")
 end
 
-using SymPy
+@autoadd using SymPy
 #sympy.init_printing(order="lex") # default
 #sympy.init_printing(order="rev-lex")
 
-using SpecialFunctions
-using QuadGK
+@autoadd using SpecialFunctions
+@autoadd using QuadGK
 
-using LaTeXStrings
+@autoadd using LaTeXStrings
 
-using Primes
+@autoadd using Primes
 ENV["LINES"] = 100
 
-using HTTP
+@autoadd using HTTP
 ```
 
 ```julia
 # Override the Base.show definition of SymPy.jl:
 # https://github.com/JuliaPy/SymPy.jl/blob/29c5bfd1d10ac53014fa7fef468bc8deccadc2fc/src/types.jl#L87-L105
 
+#=
 @eval SymPy function Base.show(io::IO, ::MIME"text/latex", x::SymbolicObject)
     print(io, as_markdown("\\displaystyle " * sympy.latex(x, mode="plain", fold_short_frac=false)))
 end
@@ -126,6 +169,7 @@ end
     end
     print(io, as_markdown(toeqnarray(x)))
 end
+=#
 ```
 
 ## Mellin変換とその逆変換
@@ -412,11 +456,11 @@ for s in [-6.2:0.1:-1.6, -2.0:0.05:0.95, 1.3:0.07:4.0, 3.8:0.07:10]
     plot!(s, CutoffZeta0.(s), label="\$\\sum\\,n^{-s}\\eta(n/N) - H(1-s)N^{1-s}\$", ls=:dash)
     push!(PP, P)
 end
-plot(PP[1:2]..., size=(720, 260), legend=:bottomleft)
+plot(PP[1:2]..., size=(720, 260), legend=:bottomleft, bottommargin=4Plots.mm)
 ```
 
 ```julia
-plot(PP[3:4]..., size=(720, 260), legend=:topright)
+plot(PP[3:4]..., size=(720, 260), legend=:topright, bottommargin=4Plots.mm)
 ```
 
 ```julia
@@ -539,11 +583,11 @@ for s in [-6.2:0.1:-1.6, -2.0:0.05:0.95, 1.3:0.07:4.0, 3.8:0.07:10]
     plot!(s, CutoffZ.(s), label="\$\\sum\\,(-1)^{n-1}n^{-s}\\exp(-n^2/N^2)\$", ls=:dash)
     push!(PP, P)
 end
-plot(PP[1:2]..., size=(800, 320))
+plot(PP[1:2]..., size=(800, 320), bottommargin=4Plots.mm)
 ```
 
 ```julia
-plot(PP[3:4]..., size=(800, 320))
+plot(PP[3:4]..., size=(800, 320), bottommargin=4Plots.mm)
 ```
 
 ```julia
@@ -642,11 +686,11 @@ for (s, N) in [(-6.2:0.1:-1.6, 50), (-2.0:0.05:0.95, 100), (1.3:0.07:4.0, 500), 
     plot!(ylim=(yzmin, yzmax + 0.5*(yzmax-yzmin)))
     push!(PP, P)
 end
-plot(PP[1:2]..., size=(800, 320), legend=:topleft)
+plot(PP[1:2]..., size=(800, 320), legend=:topleft, bottommargin=4Plots.mm)
 ```
 
 ```julia
-plot(PP[3:4]..., size=(800, 320), legend=:topleft)
+plot(PP[3:4]..., size=(800, 320), legend=:topleft, bottommargin=4Plots.mm)
 ```
 
 ```julia
@@ -762,7 +806,7 @@ for Ns in [1:10, 1:100]
     plot!(ylims=(ymin-0.05*(ymax-ymin), ymax+0.5*(ymax-ymin)), legendfontsize=9)
     push!(PP, P)
 end
-plot(PP..., size=(800,300))
+plot(PP..., size=(800,300), bottommargin=4Plots.mm)
 ```
 
 ### -(d/ds)log ζ(s)の場合
@@ -855,7 +899,7 @@ for Ns in [1:10, 1:100]
     plot!(ylims=(ymin-0.05*(ymax-ymin), ymax+0.3*(ymax-ymin)), legendfontsize=9)
     push!(PP, P)
 end
-plot(PP..., size=(800,300))
+plot(PP..., size=(800,300), bottommargin=4Plots.mm)
 ```
 
 **注意:** $\rho_j$ を $0\leqq \real s\leqq 1$ における $\zeta(s)$ の虚部の絶対値が $j$ 番目に小さな零点であるとするとし, $\psi(x)$ を
@@ -911,7 +955,7 @@ for x in [1:0.05:12, 1:0.5:120]
     plot!(x, approxpsi.(x), label="\$-\\log(2\\pi)+x\$", ls=:dash)
     push!(PP, P)
 end
-plot(PP..., size=(800,300))
+plot(PP..., size=(800,300), bottommargin=4Plots.mm)
 ```
 
 **注意:** $x$ 以下の素数の個数を $\pi(x)$ と書くとき, $\ds\pi(x)\sim\frac{x}{\log x}$ が成立するという結果は**素数定理**と呼ばれている.  $\psi(x)\sim x$ と素数定理は同値である. 上にプロットした結果はさらに定数項が $-\log(2\pi)$ になることを意味している. $\QED$
@@ -951,7 +995,7 @@ for T in [0:100, 0:maxT/200:maxT]
     plot!(legendfontsize=10)
     push!(PP, P)
 end
-plot(PP..., size=(800,300))
+plot(PP..., size=(800,300), bottommargin=4Plots.mm)
 ```
 
 ```julia

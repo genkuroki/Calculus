@@ -32,6 +32,9 @@ http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A01%20Smooth%2
 
 * Terence Tao, <a href="https://terrytao.wordpress.com/2010/04/10/the-euler-maclaurin-formula-bernoulli-numbers-the-zeta-function-and-real-variable-analytic-continuation/">The Euler-Maclaurin formula, Bernoulli numbers, the zeta function, and real-variable analytic continuation</a>, What's new, 2010-04-10
 
+このノートは[Google Colabで実行](https://colab.research.google.com/github/genkuroki/Calculus/blob/master/A01%20Smooth%20cutoff%20of%20Dirichlet%20series.ipynb)できる。最初に「ランタイム→すべてのセルを実行」を行うとよい。初回の実行ではセル\[2\]の実行が終了するまで2分程度かかる。
+
+<!--
 自分のパソコンに<a href="https://julialang.org/">Julia言語</a>をインストールしたい場合には
 
 * [WindowsへのJulia言語のインストール](http://nbviewer.jupyter.org/gist/genkuroki/81de23edcae631a995e19a2ecf946a4f)
@@ -39,6 +42,7 @@ http://nbviewer.jupyter.org/github/genkuroki/Calculus/blob/master/A01%20Smooth%2
 * [Julia v1.1.0 の Windows 8.1 へのインストール](https://nbviewer.jupyter.org/github/genkuroki/msfd28/blob/master/install.ipynb)
 
 を参照せよ. 前者は古く, 後者の方が新しい.
+-->
 
 $
 \newcommand\eps{\varepsilon}

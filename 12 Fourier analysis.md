@@ -8,18 +8,18 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.4
+    display_name: Julia
     language: julia
-    name: julia-1.9
+    name: julia
 ---
 
 # 12 Fourier解析
 
 黒木玄
 
-2018-06-28～2019-06-16, 2023-06-22
+2018-06-28～2019-06-16, 2023-06-22, 2025-10-09
 
-* Copyright 2018,2019,2023 Gen Kuroki
+* Copyright 2018,2019,2023,2025 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
 * Repository: https://github.com/genkuroki/Calculus
 
@@ -3412,17 +3412,19 @@ $$
 すなわち
 
 $$
-e^{2\pi i\tau a}L(\tau, a, 1-s) =
+\begin{aligned}
+e^{2\pi i\tau a}L(\tau, a, 1-s) &=
 \frac{\Gamma(s)}{(2\pi)^s}\left(
 e^{-\pi is/2}e^{2\pi ia}L(a, 1-\tau, s) +
 e^{\pi is/2}L(-a, \tau, s)
 \right),
 \\
-e^{2\pi i\tau a}\Phi(e^{2\pi i\tau},1-s,a) =
+e^{2\pi i\tau a}\Phi(e^{2\pi i\tau},1-s,a) &=
 \frac{\Gamma(s)}{(2\pi)^s}\left(
 e^{-\pi is/2}e^{2\pi ia}\Phi(e^{2\pi ia}, s, 1-\tau) +
 e^{\pi is/2}\Phi(e^{-2\pi ia},s,\tau)
 \right).
+\end{aligned}
 $$
 
 **注意:** この結果は**Lerchの函数等式**とも呼ばれる.

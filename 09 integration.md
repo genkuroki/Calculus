@@ -8,16 +8,16 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia
     language: julia
-    name: julia-1.9
+    name: julia
 ---
 
 # 09 積分
 
 黒木玄
 
-2018-06-21～2019-04-03, 2023-06-22
+2018-06-21～2019-04-03, 2023-06-22, 2026-03-05
 
 * Copyright 2018,2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
@@ -1348,7 +1348,8 @@ $$
 \frac{\d f(\alpha, x)}{\d\alpha} = \lim_{h\to 0}\frac{f(\alpha+h,x)-f(\alpha,x)}{h}
 $$
 
-が存在し, ある非負値函数 $\varphi(x)\geqq 0$ でかつ
+で $\alpha$ について連続なものが存在し, ある非負値函数 $\varphi(x)\geqq 0$ でかつ
+
 $$
 \int_a^b \varphi(x)\,dx<\infty, \qquad
 \left|\frac{\d f(\alpha,x)}{\d\alpha}\right| \leqq \varphi(x)\quad (a<x<b)

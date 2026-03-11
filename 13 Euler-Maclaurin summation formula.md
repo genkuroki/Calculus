@@ -8,9 +8,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia
     language: julia
-    name: julia-1.9
+    name: julia
 ---
 
 # 13 Euler-Maclaurinの和公式
@@ -1673,7 +1673,7 @@ $$
 
 これは $N\to\infty$ で発散級数 $1+1+1+1+\cdots$ になる無限和 $\ds \sum_{n=1}^\infty\eta(x/N)$ から, その発散部分 $\ds N\int_0^\infty\eta(y)\,dy$ を引き去って, $N\to\infty$ の極限を取ると, $\zeta(0)$ に収束することを意味している. これが欲しい結果の1つ目である.
 
-$r$ は正の整数であるとし, $f(x)=x^r\eta(x/N)$ とおく. そのとき, Leibnitz則
+$r$ は正の整数であるとし, $f(x)=x^r\eta(x/N)$ とおく. そのとき, Leibniz則
 
 $$
 (\varphi(x) \psi(x))^{(m)} = \sum_{i=0}^r \binom{m}{i}\varphi^{(i)}(x)\psi^{(m-i)}(x)

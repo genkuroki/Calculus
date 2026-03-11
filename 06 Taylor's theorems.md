@@ -8,16 +8,16 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.3
+    display_name: Julia
     language: julia
-    name: julia-1.9
+    name: julia
 ---
 
 # 06 Taylorの定理
 
 黒木玄
 
-2018-04-20～2019-04-03, 2020-08-18, 2023-06-02～2023-09-15
+2018-04-20～2019-04-03, 2020-08-18, 2023-06-02～2023-09-15, 2026-03-11
 
 * Copyright 2018, 2019, 2020, 2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
@@ -627,7 +627,7 @@ e^x = \sum_{k=0}^\infty \frac{x^k}{k!} \qquad(|x|<\infty).
 \\ &
 \sinh x = \frac{e^x-e^{-x}}{2} = \sum_{k=0}^\infty \frac{x^{2k+1}}{(2k+1)!} \qquad(|x|<\infty).
 \\ &
-\log(1+x) = \sum_{k=1}^\infty \frac{(-1)^{k-1}x^k}{k}, \qquad (|x|<1).
+\log(1+x) = \sum_{k=1}^\infty \frac{(-1)^{k-1}x^k}{k} \qquad (|x|<1).
 \\ &
 -\log(1-x) = \sum_{k=1}^\infty \frac{x^k}{k} \qquad (|x|<1).
 \\ &
@@ -721,6 +721,24 @@ $$
 \qquad\QED
 \end{aligned}
 $$
+
+
+__二項展開(一般二項定理)の証明法について:__ 二項展開(一般二項定理)
+
+$$
+(1+x)^a = \sum_{k=0}^\infty\binom{a}{k}x^k \qquad(|x|<1), 
+\qquad \binom{a}{k} = \frac{a(a-1)\cdots(a-k+1)}{k!}
+$$
+
+の証明はそれほど自明ではないことに注意せよ(他の収束半径が有限の他の例も同様).
+
+非自明になる理由は, 右辺が $|x|<1$ のときに収束することを証明できたとしても, その収束先が左辺であることを示したことにならないからである.
+
+二項展開(一般二項定理)の様々な証明法については
+
+* https://x.com/genkuroki/status/2015446763172429974
+
+のスレッドを参照せよ. $\log(1+x)$ などの場合も同様に複数の証明法が存在する.
 
 
 **問題:** $e^x$ と $\cos x$ と $\sin x$ の $x=0$ におけるTaylor展開が $x$ が複素数である場合にも成立していると仮定して, 

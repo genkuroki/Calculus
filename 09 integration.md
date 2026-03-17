@@ -17,7 +17,7 @@ jupyter:
 
 黒木玄
 
-2018-06-21～2019-04-03, 2023-06-22, 2026-03-05
+2018-06-21～2019-04-03, 2023-06-22, 2026-03-17
 
 * Copyright 2018,2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
@@ -61,7 +61,7 @@ $
 
 <!-- #region toc=true -->
 <h1>目次<span class="tocSkip"></span></h1>
-<div class="toc"><ul class="toc-item"><li><span><a href="#積分の基本性質" data-toc-modified-id="積分の基本性質-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>積分の基本性質</a></span><ul class="toc-item"><li><span><a href="#基本性質(A)線形性,-(B)積分区間の連結,-(C)定数の積分,-(D)単調性" data-toc-modified-id="基本性質(A)線形性,-(B)積分区間の連結,-(C)定数の積分,-(D)単調性-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>基本性質(A)線形性, (B)積分区間の連結, (C)定数の積分, (D)単調性</a></span></li><li><span><a href="#性質(E)-積分の絶対値の上からの評価" data-toc-modified-id="性質(E)-積分の絶対値の上からの評価-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>性質(E) 積分の絶対値の上からの評価</a></span></li><li><span><a href="#性質(F)-微分積分学の基本定理1" data-toc-modified-id="性質(F)-微分積分学の基本定理1-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>性質(F) 微分積分学の基本定理1</a></span></li><li><span><a href="#性質(G)-微分積分学の基本定理2" data-toc-modified-id="性質(G)-微分積分学の基本定理2-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>性質(G) 微分積分学の基本定理2</a></span></li></ul></li><li><span><a href="#部分積分と置換積分" data-toc-modified-id="部分積分と置換積分-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>部分積分と置換積分</a></span><ul class="toc-item"><li><span><a href="#置換積分" data-toc-modified-id="置換積分-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>置換積分</a></span></li><li><span><a href="#部分積分" data-toc-modified-id="部分積分-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>部分積分</a></span></li></ul></li><li><span><a href="#積分の近似" data-toc-modified-id="積分の近似-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>積分の近似</a></span><ul class="toc-item"><li><span><a href="#Riemann和" data-toc-modified-id="Riemann和-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Riemann和</a></span></li><li><span><a href="#台形公式" data-toc-modified-id="台形公式-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>台形公式</a></span></li><li><span><a href="#Simpsonの公式" data-toc-modified-id="Simpsonの公式-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Simpsonの公式</a></span></li></ul></li><li><span><a href="#広義積分" data-toc-modified-id="広義積分-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>広義積分</a></span><ul class="toc-item"><li><span><a href="#Fourier変換" data-toc-modified-id="Fourier変換-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Fourier変換</a></span></li><li><span><a href="#絶対収束する広義積分の例" data-toc-modified-id="絶対収束する広義積分の例-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>絶対収束する広義積分の例</a></span><ul class="toc-item"><li><span><a href="#arcsin" data-toc-modified-id="arcsin-4.2.1"><span class="toc-item-num">4.2.1&nbsp;&nbsp;</span>arcsin</a></span></li><li><span><a href="#arctan" data-toc-modified-id="arctan-4.2.2"><span class="toc-item-num">4.2.2&nbsp;&nbsp;</span>arctan</a></span></li><li><span><a href="#ガンマ函数" data-toc-modified-id="ガンマ函数-4.2.3"><span class="toc-item-num">4.2.3&nbsp;&nbsp;</span>ガンマ函数</a></span></li><li><span><a href="#ベータ函数" data-toc-modified-id="ベータ函数-4.2.4"><span class="toc-item-num">4.2.4&nbsp;&nbsp;</span>ベータ函数</a></span></li><li><span><a href="#Gauss分布のFourier変換" data-toc-modified-id="Gauss分布のFourier変換-4.2.5"><span class="toc-item-num">4.2.5&nbsp;&nbsp;</span>Gauss分布のFourier変換</a></span></li><li><span><a href="#三角函数のLaplace変換" data-toc-modified-id="三角函数のLaplace変換-4.2.6"><span class="toc-item-num">4.2.6&nbsp;&nbsp;</span>三角函数のLaplace変換</a></span></li></ul></li><li><span><a href="#条件収束する広義積分の例" data-toc-modified-id="条件収束する広義積分の例-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>条件収束する広義積分の例</a></span><ul class="toc-item"><li><span><a href="#Dirichlet積分" data-toc-modified-id="Dirichlet積分-4.3.1"><span class="toc-item-num">4.3.1&nbsp;&nbsp;</span>Dirichlet積分</a></span></li><li><span><a href="#Dirichlet積分の一般化" data-toc-modified-id="Dirichlet積分の一般化-4.3.2"><span class="toc-item-num">4.3.2&nbsp;&nbsp;</span>Dirichlet積分の一般化</a></span></li><li><span><a href="#Fresnel積分の特殊値" data-toc-modified-id="Fresnel積分の特殊値-4.3.3"><span class="toc-item-num">4.3.3&nbsp;&nbsp;</span>Fresnel積分の特殊値</a></span></li><li><span><a href="#Dirichelt積分の収束の様子" data-toc-modified-id="Dirichelt積分の収束の様子-4.3.4"><span class="toc-item-num">4.3.4&nbsp;&nbsp;</span>Dirichelt積分の収束の様子</a></span></li><li><span><a href="#Dirichlet積分が絶対収束しないことの証明" data-toc-modified-id="Dirichlet積分が絶対収束しないことの証明-4.3.5"><span class="toc-item-num">4.3.5&nbsp;&nbsp;</span>Dirichlet積分が絶対収束しないことの証明</a></span></li><li><span><a href="#Dirichlet積分が絶対収束しない様子" data-toc-modified-id="Dirichlet積分が絶対収束しない様子-4.3.6"><span class="toc-item-num">4.3.6&nbsp;&nbsp;</span>Dirichlet積分が絶対収束しない様子</a></span></li><li><span><a href="#Fresnel積分" data-toc-modified-id="Fresnel積分-4.3.7"><span class="toc-item-num">4.3.7&nbsp;&nbsp;</span>Fresnel積分</a></span></li><li><span><a href="#Fresnel積分の収束の様子" data-toc-modified-id="Fresnel積分の収束の様子-4.3.8"><span class="toc-item-num">4.3.8&nbsp;&nbsp;</span>Fresnel積分の収束の様子</a></span></li><li><span><a href="#数式処理系による定積分の計算" data-toc-modified-id="数式処理系による定積分の計算-4.3.9"><span class="toc-item-num">4.3.9&nbsp;&nbsp;</span>数式処理系による定積分の計算</a></span></li><li><span><a href="#Dirichlet積分の分母を-$x^a$-とする一般化" data-toc-modified-id="Dirichlet積分の分母を-$x^a$-とする一般化-4.3.10"><span class="toc-item-num">4.3.10&nbsp;&nbsp;</span>Dirichlet積分の分母を $x^a$ とする一般化</a></span></li><li><span><a href="#部分積分による広義積分の収束の証明法" data-toc-modified-id="部分積分による広義積分の収束の証明法-4.3.11"><span class="toc-item-num">4.3.11&nbsp;&nbsp;</span>部分積分による広義積分の収束の証明法</a></span></li></ul></li></ul></li><li><span><a href="#積分と極限の交換" data-toc-modified-id="積分と極限の交換-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>積分と極限の交換</a></span><ul class="toc-item"><li><span><a href="#積分と極限が交換できない場合" data-toc-modified-id="積分と極限が交換できない場合-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>積分と極限が交換できない場合</a></span><ul class="toc-item"><li><span><a href="#Lebesgueの収束定理の結論が成立しない場合1" data-toc-modified-id="Lebesgueの収束定理の結論が成立しない場合1-5.1.1"><span class="toc-item-num">5.1.1&nbsp;&nbsp;</span>Lebesgueの収束定理の結論が成立しない場合1</a></span></li></ul></li><li><span><a href="#Dirichlet積分とその一般化" data-toc-modified-id="Dirichlet積分とその一般化-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>Dirichlet積分とその一般化</a></span><ul class="toc-item"><li><span><a href="#Dirichlet積分の一般化に関する公式" data-toc-modified-id="Dirichlet積分の一般化に関する公式-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>Dirichlet積分の一般化に関する公式</a></span></li><li><span><a href="#Dirichlet積分の公式の証明のための準備" data-toc-modified-id="Dirichlet積分の公式の証明のための準備-5.2.2"><span class="toc-item-num">5.2.2&nbsp;&nbsp;</span>Dirichlet積分の公式の証明のための準備</a></span></li><li><span><a href="#Dirichlet積分の公式の証明" data-toc-modified-id="Dirichlet積分の公式の証明-5.2.3"><span class="toc-item-num">5.2.3&nbsp;&nbsp;</span>Dirichlet積分の公式の証明</a></span></li></ul></li><li><span><a href="#Fresnel積分の特殊値の公式の導出" data-toc-modified-id="Fresnel積分の特殊値の公式の導出-5.3"><span class="toc-item-num">5.3&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の導出</a></span><ul class="toc-item"><li><span><a href="#Fresnel積分の特殊値の公式の証明のための準備-(1/(1+t⁴)の積分)" data-toc-modified-id="Fresnel積分の特殊値の公式の証明のための準備-(1/(1+t⁴)の積分)-5.3.1"><span class="toc-item-num">5.3.1&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の証明のための準備 (1/(1+t⁴)の積分)</a></span></li><li><span><a href="#1/(1+t⁴)の不定積分の公式の数式処理を用いた確認" data-toc-modified-id="1/(1+t⁴)の不定積分の公式の数式処理を用いた確認-5.3.2"><span class="toc-item-num">5.3.2&nbsp;&nbsp;</span>1/(1+t⁴)の不定積分の公式の数式処理を用いた確認</a></span></li><li><span><a href="#Fresnel積分の特殊値の公式の証明" data-toc-modified-id="Fresnel積分の特殊値の公式の証明-5.3.3"><span class="toc-item-num">5.3.3&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の証明</a></span></li><li><span><a href="#Fresnel積分の特殊値の公式の複素解析を用いた導出" data-toc-modified-id="Fresnel積分の特殊値の公式の複素解析を用いた導出-5.3.4"><span class="toc-item-num">5.3.4&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の複素解析を用いた導出</a></span></li><li><span><a href="#sine-integral-and-cosine-integral-functions" data-toc-modified-id="sine-integral-and-cosine-integral-functions-5.3.5"><span class="toc-item-num">5.3.5&nbsp;&nbsp;</span>sine integral and cosine integral functions</a></span></li></ul></li></ul></li></ul></div>
+<div class="toc"><ul class="toc-item"><li><span><a href="#積分の基本性質" data-toc-modified-id="積分の基本性質-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>積分の基本性質</a></span><ul class="toc-item"><li><span><a href="#基本性質(A)線形性,-(B)積分区間の連結,-(C)定数の積分,-(D)単調性" data-toc-modified-id="基本性質(A)線形性,-(B)積分区間の連結,-(C)定数の積分,-(D)単調性-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>基本性質(A)線形性, (B)積分区間の連結, (C)定数の積分, (D)単調性</a></span></li><li><span><a href="#性質(E)-積分の絶対値の上からの評価" data-toc-modified-id="性質(E)-積分の絶対値の上からの評価-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>性質(E) 積分の絶対値の上からの評価</a></span></li><li><span><a href="#性質(F)-微分積分学の基本定理1" data-toc-modified-id="性質(F)-微分積分学の基本定理1-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>性質(F) 微分積分学の基本定理1</a></span></li><li><span><a href="#性質(G)-微分積分学の基本定理2" data-toc-modified-id="性質(G)-微分積分学の基本定理2-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>性質(G) 微分積分学の基本定理2</a></span></li></ul></li><li><span><a href="#部分積分と置換積分" data-toc-modified-id="部分積分と置換積分-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>部分積分と置換積分</a></span><ul class="toc-item"><li><span><a href="#(H)-置換積分" data-toc-modified-id="(H)-置換積分-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>(H) 置換積分</a></span></li><li><span><a href="#(I)-部分積分" data-toc-modified-id="(I)-部分積分-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>(I) 部分積分</a></span></li></ul></li><li><span><a href="#積分の近似" data-toc-modified-id="積分の近似-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>積分の近似</a></span><ul class="toc-item"><li><span><a href="#Riemann和" data-toc-modified-id="Riemann和-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Riemann和</a></span></li><li><span><a href="#台形公式" data-toc-modified-id="台形公式-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>台形公式</a></span></li><li><span><a href="#Simpsonの公式" data-toc-modified-id="Simpsonの公式-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Simpsonの公式</a></span></li></ul></li><li><span><a href="#広義積分" data-toc-modified-id="広義積分-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>広義積分</a></span><ul class="toc-item"><li><span><a href="#Fourier変換" data-toc-modified-id="Fourier変換-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Fourier変換</a></span></li><li><span><a href="#絶対収束する広義積分の例" data-toc-modified-id="絶対収束する広義積分の例-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>絶対収束する広義積分の例</a></span><ul class="toc-item"><li><span><a href="#arcsin" data-toc-modified-id="arcsin-4.2.1"><span class="toc-item-num">4.2.1&nbsp;&nbsp;</span>arcsin</a></span></li><li><span><a href="#arctan" data-toc-modified-id="arctan-4.2.2"><span class="toc-item-num">4.2.2&nbsp;&nbsp;</span>arctan</a></span></li><li><span><a href="#ガンマ函数" data-toc-modified-id="ガンマ函数-4.2.3"><span class="toc-item-num">4.2.3&nbsp;&nbsp;</span>ガンマ函数</a></span></li><li><span><a href="#ベータ函数" data-toc-modified-id="ベータ函数-4.2.4"><span class="toc-item-num">4.2.4&nbsp;&nbsp;</span>ベータ函数</a></span></li><li><span><a href="#Gauss分布のFourier変換" data-toc-modified-id="Gauss分布のFourier変換-4.2.5"><span class="toc-item-num">4.2.5&nbsp;&nbsp;</span>Gauss分布のFourier変換</a></span></li><li><span><a href="#三角函数のLaplace変換" data-toc-modified-id="三角函数のLaplace変換-4.2.6"><span class="toc-item-num">4.2.6&nbsp;&nbsp;</span>三角函数のLaplace変換</a></span></li></ul></li><li><span><a href="#条件収束する広義積分の例" data-toc-modified-id="条件収束する広義積分の例-4.3"><span class="toc-item-num">4.3&nbsp;&nbsp;</span>条件収束する広義積分の例</a></span><ul class="toc-item"><li><span><a href="#Dirichlet積分" data-toc-modified-id="Dirichlet積分-4.3.1"><span class="toc-item-num">4.3.1&nbsp;&nbsp;</span>Dirichlet積分</a></span></li><li><span><a href="#Dirichlet積分の一般化" data-toc-modified-id="Dirichlet積分の一般化-4.3.2"><span class="toc-item-num">4.3.2&nbsp;&nbsp;</span>Dirichlet積分の一般化</a></span></li><li><span><a href="#Fresnel積分の特殊値" data-toc-modified-id="Fresnel積分の特殊値-4.3.3"><span class="toc-item-num">4.3.3&nbsp;&nbsp;</span>Fresnel積分の特殊値</a></span></li><li><span><a href="#Dirichelt積分の収束の様子" data-toc-modified-id="Dirichelt積分の収束の様子-4.3.4"><span class="toc-item-num">4.3.4&nbsp;&nbsp;</span>Dirichelt積分の収束の様子</a></span></li><li><span><a href="#Dirichlet積分が絶対収束しないことの証明" data-toc-modified-id="Dirichlet積分が絶対収束しないことの証明-4.3.5"><span class="toc-item-num">4.3.5&nbsp;&nbsp;</span>Dirichlet積分が絶対収束しないことの証明</a></span></li><li><span><a href="#Dirichlet積分が絶対収束しない様子" data-toc-modified-id="Dirichlet積分が絶対収束しない様子-4.3.6"><span class="toc-item-num">4.3.6&nbsp;&nbsp;</span>Dirichlet積分が絶対収束しない様子</a></span></li><li><span><a href="#Fresnel積分" data-toc-modified-id="Fresnel積分-4.3.7"><span class="toc-item-num">4.3.7&nbsp;&nbsp;</span>Fresnel積分</a></span></li><li><span><a href="#Fresnel積分の収束の様子" data-toc-modified-id="Fresnel積分の収束の様子-4.3.8"><span class="toc-item-num">4.3.8&nbsp;&nbsp;</span>Fresnel積分の収束の様子</a></span></li><li><span><a href="#数式処理系による定積分の計算" data-toc-modified-id="数式処理系による定積分の計算-4.3.9"><span class="toc-item-num">4.3.9&nbsp;&nbsp;</span>数式処理系による定積分の計算</a></span></li><li><span><a href="#Dirichlet積分の分母を-$x^a$-とする一般化" data-toc-modified-id="Dirichlet積分の分母を-$x^a$-とする一般化-4.3.10"><span class="toc-item-num">4.3.10&nbsp;&nbsp;</span>Dirichlet積分の分母を $x^a$ とする一般化</a></span></li><li><span><a href="#部分積分による広義積分の収束の証明法" data-toc-modified-id="部分積分による広義積分の収束の証明法-4.3.11"><span class="toc-item-num">4.3.11&nbsp;&nbsp;</span>部分積分による広義積分の収束の証明法</a></span></li></ul></li></ul></li><li><span><a href="#積分と極限の交換" data-toc-modified-id="積分と極限の交換-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>積分と極限の交換</a></span><ul class="toc-item"><li><span><a href="#(J)-積分の順序交換,-(K)-積分記号化での微分,-(L)-Lebesgue(ルベーグ)の収束定理" data-toc-modified-id="(J)-積分の順序交換,-(K)-積分記号化での微分,-(L)-Lebesgue(ルベーグ)の収束定理-5.1"><span class="toc-item-num">5.1&nbsp;&nbsp;</span>(J) 積分の順序交換, (K) 積分記号化での微分, (L) Lebesgue(ルベーグ)の収束定理</a></span></li><li><span><a href="#積分と極限が交換できない場合" data-toc-modified-id="積分と極限が交換できない場合-5.2"><span class="toc-item-num">5.2&nbsp;&nbsp;</span>積分と極限が交換できない場合</a></span><ul class="toc-item"><li><span><a href="#Lebesgueの収束定理の結論が成立しない場合1" data-toc-modified-id="Lebesgueの収束定理の結論が成立しない場合1-5.2.1"><span class="toc-item-num">5.2.1&nbsp;&nbsp;</span>Lebesgueの収束定理の結論が成立しない場合1</a></span></li></ul></li><li><span><a href="#Dirichlet積分とその一般化" data-toc-modified-id="Dirichlet積分とその一般化-5.3"><span class="toc-item-num">5.3&nbsp;&nbsp;</span>Dirichlet積分とその一般化</a></span><ul class="toc-item"><li><span><a href="#Dirichlet積分の一般化に関する公式" data-toc-modified-id="Dirichlet積分の一般化に関する公式-5.3.1"><span class="toc-item-num">5.3.1&nbsp;&nbsp;</span>Dirichlet積分の一般化に関する公式</a></span></li><li><span><a href="#Dirichlet積分の公式の証明のための準備" data-toc-modified-id="Dirichlet積分の公式の証明のための準備-5.3.2"><span class="toc-item-num">5.3.2&nbsp;&nbsp;</span>Dirichlet積分の公式の証明のための準備</a></span></li><li><span><a href="#Dirichlet積分の公式の証明" data-toc-modified-id="Dirichlet積分の公式の証明-5.3.3"><span class="toc-item-num">5.3.3&nbsp;&nbsp;</span>Dirichlet積分の公式の証明</a></span></li></ul></li><li><span><a href="#Fresnel積分の特殊値の公式の導出" data-toc-modified-id="Fresnel積分の特殊値の公式の導出-5.4"><span class="toc-item-num">5.4&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の導出</a></span><ul class="toc-item"><li><span><a href="#Fresnel積分の特殊値の公式の証明のための準備-(1/(1+t⁴)の積分)" data-toc-modified-id="Fresnel積分の特殊値の公式の証明のための準備-(1/(1+t⁴)の積分)-5.4.1"><span class="toc-item-num">5.4.1&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の証明のための準備 (1/(1+t⁴)の積分)</a></span></li><li><span><a href="#1/(1+t⁴)の不定積分の公式の数式処理を用いた確認" data-toc-modified-id="1/(1+t⁴)の不定積分の公式の数式処理を用いた確認-5.4.2"><span class="toc-item-num">5.4.2&nbsp;&nbsp;</span>1/(1+t⁴)の不定積分の公式の数式処理を用いた確認</a></span></li><li><span><a href="#Fresnel積分の特殊値の公式の証明" data-toc-modified-id="Fresnel積分の特殊値の公式の証明-5.4.3"><span class="toc-item-num">5.4.3&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の証明</a></span></li><li><span><a href="#Fresnel積分の特殊値の公式の複素解析を用いた導出" data-toc-modified-id="Fresnel積分の特殊値の公式の複素解析を用いた導出-5.4.4"><span class="toc-item-num">5.4.4&nbsp;&nbsp;</span>Fresnel積分の特殊値の公式の複素解析を用いた導出</a></span></li><li><span><a href="#sine-integral-and-cosine-integral-functions" data-toc-modified-id="sine-integral-and-cosine-integral-functions-5.4.5"><span class="toc-item-num">5.4.5&nbsp;&nbsp;</span>sine integral and cosine integral functions</a></span></li></ul></li></ul></li></ul></div>
 <!-- #endregion -->
 
 ```julia
@@ -362,6 +362,8 @@ $$
 
 これは(1)が成立することを意味する. $\QED$
 
+<br>
+
 
 **以上によって, 実1変数実数値函数の微分積分学の基本定理が積分の基本性質(A)～(D)だけから導かれることがわかった.**
 
@@ -373,7 +375,7 @@ $$
 微分積分学の基本定理さえ証明できてしまえば, 部分積分と置換積分の導出は微分学の結果をそのまま積分学に応用する話に過ぎなくなる.
 
 
-### 置換積分
+### (H) 置換積分
 
 $f(x)$, $g(t)$ は $C^1$ 級函数であると仮定し, 
 
@@ -413,7 +415,7 @@ $$
 **問題:** 任意の微積分の教科書を参照して, 置換積分を使って計算する積分計算の面白い問題を見付けて, 計算練習せよ. $\QED$
 
 
-### 部分積分
+### (I) 部分積分
 
 $f(x)$, $g(x)$ は $C^1$ 級函数であると仮定する.
 
@@ -445,6 +447,8 @@ $$
 左辺の積分を右辺で計算することを**部分積分**と呼ぶ.
 
 **問題:** 任意の微積分の教科書を参照して, 部分積分を使って計算する積分計算の面白い問題を見付けて, 計算練習せよ. $\QED$
+
+<br><br><br>
 
 
 ## 積分の近似
@@ -492,6 +496,8 @@ $$
 
 以上によって, 閉区間 $[a,b]$ の分割を細かくすることによって, Riemann和で積分を誤差 $\eps$ 以下で近似できることを示せた. $\QED$
 
+<br>
+
 
 **定理:** 閉区間 $[a,b]$ の分割のデータ
 
@@ -515,6 +521,8 @@ $$
 
 が存在することを示せる. この極限が存在するような閉区間 $[a,b]$ 上の函数は**Riemann積分可能**な函数と呼ばれ, その極限の値は**Riemann積分**と呼ばれる. 特に閉区間上の連続函数はRiemann積分可能である. そして, Riemann積分で積分を定義すると, Riemann積分可能な函数について, 積分の基本性質をすべて示すことができる. $\QED$
 
+<br>
+
 
 ### 台形公式
 
@@ -525,6 +533,8 @@ $$
 $$
 
 で積分 $\int_a^b f(x)\,dx$ を近似することもできる. これを**台形公式**(trapezoidal rule)と呼ぶ.
+
+<br>
 
 
 ### Simpsonの公式
@@ -1332,6 +1342,9 @@ $$
 
 このノートを含む一連のノート群では安全な極限の交換しか扱わない.
 
+
+### (J) 積分の順序交換, (K) 積分記号化での微分, (L) Lebesgue(ルベーグ)の収束定理
+
 読者は積分と極限の交換, 積分と微分の交換, 積分順序の交換などを形式的に自由にできることを認めて読んで欲しい.
 
 もしくは以下の結果が証明抜きで自由に使用されると考えてもよい.
@@ -1342,13 +1355,13 @@ $$
 \int_a^b\left(\int_c^d f(x,y) \,dy\right)\,dx = \int_c^d\left(\int_a^b f(x,y) \,dx\right)\,dy.
 $$
 
-**(K)** **積分記号化での微分:** 各パラメーター $\alpha$ について $\int_a^b|f(\alpha,x)|\,dx <\infty$ であり, 各 $x\in(a,b)$ について偏導函数(偏微分に値を持つ函数)
+**(K)** **積分記号下での微分:** 各パラメーターの値 $\alpha$ について $\int_a^b|f(\alpha,x)|\,dx <\infty$ であり, 各 $x\in(a,b)$ について $\alpha$ について連続な偏導函数(偏微分に値を持つ函数)
 
 $$
 \frac{\d f(\alpha, x)}{\d\alpha} = \lim_{h\to 0}\frac{f(\alpha+h,x)-f(\alpha,x)}{h}
 $$
 
-で $\alpha$ について連続なものが存在し, ある非負値函数 $\varphi(x)\geqq 0$ でかつ
+が存在し, ある非負値函数 $\varphi(x)\geqq 0$ で
 
 $$
 \int_a^b \varphi(x)\,dx<\infty, \qquad
@@ -1672,6 +1685,8 @@ $$
 $$
 
 ゆえに $\ds \int_0^\infty \frac{\sin t}{t}\,dt = \frac{\pi}{2}$. $\QED$
+
+<br><br><br>
 
 
  ### Fresnel積分の特殊値の公式の導出

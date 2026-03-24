@@ -9,9 +9,9 @@ jupyter:
       format_version: '1.3'
       jupytext_version: 1.10.3
   kernelspec:
-    display_name: Julia 1.9.1
+    display_name: Julia
     language: julia
-    name: julia-1.9
+    name: julia
 ---
 
 # Hurwitzのゼータ函数の話
@@ -396,6 +396,8 @@ Milnorの原論文
 
 以下では上のFourier級数表示を数値的に確認する.
 
+<br>
+
 ```julia
 function Fourierlogsine(r, x; N=50)
     if iseven(r)
@@ -491,6 +493,8 @@ L(\tau, x, s) = \sum_{k=0}^\infty \frac{e^{2\pi ix}}{(x+k)^s}
 $$
 
 を扱っている. Hurwitzの函数等式ではHurwitzのゼータ函数以外に多重対数函数も必要になるが, Lerchの超越函数であればその範囲内で $s\leftrightarrow 1-s$ に関する函数等式を閉じた形で書ける.
+
+<br><br>
 
 
 ### Milnor型対数多重正弦函数のFourier展開公式の証明
@@ -1066,6 +1070,8 @@ $$
 * Kurokawa, Nobushige and Wakayama, Masato. Period deformations and Raabe's formulas for generalized gamma and sine functions. Kyushu Journal of Mathematics 62(1), 2008, 171-187. [PDF](https://www.jstage.jst.go.jp/article/kyushujm/62/1/62_1_171/_pdf)
 
 の第5節で「一般化Raabe公式の多重Hurwitzゼータ函数版」として, 別の方法で証明されている.  上の定理のような形の公式は「Raabeの公式」と呼ばれているらしい.
+
+<br><br>
 
 
 ### 移動平均に関する結果の一般の確率分布への自明な一般化

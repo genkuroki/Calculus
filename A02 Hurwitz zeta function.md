@@ -18,7 +18,7 @@ jupyter:
 
 黒木玄
 
-2019-04-01～2019-07-13, 2020-04-25, 2021-01-22, 2023-06-22
+2019-04-01～2019-07-13, 2020-04-25, 2021-01-22, 2023-06-22, 2026-06-05
 
 * Copyright 2018,2019,2020,2021,2023 Gen Kuroki
 * License: MIT https://opensource.org/licenses/MIT
@@ -250,7 +250,7 @@ plot_logsine1()
 ぴったり一致している.
 
 
-$\log(2\sin \pi x)$ については次が成立することも知られている:
+$\log(2\sin \pi x)$ については次が成立することも知られている(Hurwitzのゼータ函数の移動平均の応用によって容易に証明される):
 
 $$
 \int_0^1 \log(2\sin\pi x)\, dx = 0.
@@ -261,6 +261,58 @@ $$
 $$
 \int_0^{\pi/2} \log(\sin x)\,dx = -\frac{\pi}{2}\log 2
 $$
+
+
+__より詳しい解説:__ このノートのずっと下の方で, Hurwitzのゼータ函数が
+
+$$
+\zeta(s,x) = \frac{1}{\Gamma(s)}\int_0^\infty \frac{\beta\,e^{-\beta x}}{1-e^{-\beta}} \beta^{s-2}\,d\beta
+$$
+
+と表されることを示す(これは有名な公式である). 
+この公式の両辺の $x$ に $x+t$ を代入して $t$ について積分することによって, 次の移動平均の公式が得られる(次の公式が得られる根拠は「カノニカル分布」にあることをずっと下の方で説明する):
+
+$$
+\int_0^1 \zeta(s, x+t)\,dt = \frac{1}{s-1}\frac{1}{x^{s-1}} = -\frac{x^{1-s}}{1-s}.
+$$
+
+この公式の両辺を $s$ で微分すると,
+
+$$
+\int_0^1 \zeta_s(s, x+t)\,dt = -\frac{x^{1-s}}{1-s}\left(-\log x + \frac{1}{1-s}\right).
+$$
+
+ゆえに, $r$ は正の整数であるとし, $s=1-r$ を代入すると, $1-s=r$ でかつ $x^{1-s}=x^r$ なので, $x\to 0$ とすると,
+
+$$
+\int_0^1 \zeta_s(1-r, x)\, dx = 0.
+$$
+
+ここで左辺の積分変数 $t$ を $x$ で置き換えた.
+特に $r=1$ のとき $\int_0^1 \zeta_s(0, x)\,dx=0$ となる. これを上で示した
+
+$$
+\log(2\sin\pi x) = -\zeta_s(0,x) - \zeta_s(0,1-x) \quad (0<x<1).
+$$
+
+に適用すると,
+
+$$
+\int_0^1 \log(2\sin\pi x)\, dx = 0.
+$$
+
+上では $r=1$ の場合のみを使ったが, $r$ が2以上の整数の場合を使うと, 後で定義するMilnor型の対数多重正弦函数 $\log S^M_r(x)$ について次が成立することを示せる:
+
+$$
+\int_0^1 \log S^M_r(x)\, dx = 0.
+$$
+
+以上で示した公式は $\log S^M_1(x) = \log(2\sin\pi x)$ や $\log S^M_r(x)$ のFourier級数展開の定数項を求めているとみなせる. 以下の節ではFourier級数展開全体を求める.
+
+<br>
+
+
+__数値計算による確認:__ $\int_0^1 \log(2\sin\pi x)\, dx = 0$ を数値的に確認しよう.
 
 ```julia
 value, error = quadgk(x -> log(2sin(π*x)), 0, 1)
@@ -1032,6 +1084,7 @@ $$
 
 このように, $r$ 重のHurwitzのゼータ函数の $l$ 重の移動平均は本質的に $r-l$ 重のHurwitzのゼータ函数の $s$ を $-l$ シフトしたものになる.
 
+
 これで次の定理が得られた.
 
 **定理:** $$
@@ -1070,8 +1123,6 @@ $$
 * Kurokawa, Nobushige and Wakayama, Masato. Period deformations and Raabe's formulas for generalized gamma and sine functions. Kyushu Journal of Mathematics 62(1), 2008, 171-187. [PDF](https://www.jstage.jst.go.jp/article/kyushujm/62/1/62_1_171/_pdf)
 
 の第5節で「一般化Raabe公式の多重Hurwitzゼータ函数版」として, 別の方法で証明されている.  上の定理のような形の公式は「Raabeの公式」と呼ばれているらしい.
-
-<br><br>
 
 
 ### 移動平均に関する結果の一般の確率分布への自明な一般化

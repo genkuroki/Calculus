@@ -738,6 +738,8 @@ $$
 
 これで示すべきことが示された. $\QED$
 
+<br><br>
+
 
 ## カノニカル分布との関係
 
@@ -771,7 +773,7 @@ $$
 &
 Z(\beta) = \frac{1}{\omega}\int_0^\omega e^{-\beta x}\,dx =
 \frac{1}{\omega}\left[\frac{e^{-\beta x}}{-\beta}\right]_0^\omega =
-\frac{1-e^{\beta\omega}}{\beta\omega},
+\frac{1-e^{-\beta\omega}}{\beta\omega},
 \\ &
 p(x|\beta) =
 \begin{cases}
@@ -820,6 +822,8 @@ p(x|\beta) =
 \frac{1}{\sqrt{2\pi\sigma^2}} e^{-(x+\beta\sigma^2)^2/(2\sigma^2)}.
 \end{aligned}
 $$
+
+<br><br>
 
 
 #### 注意: カノニカル分布の出所
@@ -926,6 +930,8 @@ $$
 $$
 
 これらの公式は後で $r$ 重のHurwitzのゼータ函数の $l$ 重の移動平均で $r-l$ 重のHurwitzゼータ函数が得られるという結果を示すときの仕組みそのものである.
+
+<br>
 
 
 #### 例: コイン投げ分布に対する一般化されたBernoulli多項式 (Euler多項式)
@@ -1247,6 +1253,8 @@ $$
 \frac{1}{\Gamma(s)}\int_0^\infty e^{-\beta x}\beta^{s-2}\,d\beta =
 \frac{1}{s-1}\frac{1}{x^{s-1}}.
 $$
+
+<br><br>
 
 
 ### 一般化された1重のHurwitz型ゼータ函数の0以下の整数での特殊値

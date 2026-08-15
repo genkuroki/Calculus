@@ -269,6 +269,8 @@ $$
 
 上の定理の条件(1),(2),(4)によってBernoulli多項式 $B_n(x)$ が $n$ について帰納的に一意的に決まる. $\QED$
 
+<br>
+
 
 **例:** 
 $$
@@ -553,6 +555,8 @@ $$
 
 と近似できることがわかる. 適当にスケールすれば周期的Bernoulli多項式は $k\to\infty$ で三角函数に収束する.
 
+<br>
+
 ```julia
 BBB = Bernoulli(Float64.(B.B)) # Float64 Bernoulli numbers
 BP(k,x) = sum(j->binom(k,j)*BBB(k-j)*x^j, 0:k) # Float64 Bernoulli polynomial
@@ -755,6 +759,8 @@ R_n = \int_a^x f^{(n)} p_n(t)\,dt =
 $$
 
 とおいた.  この意味でEuler-Maclaurinの和公式はTaylorの公式の「仲間」だと言える. $\QED$
+
+<br>
 
 
 ### Euler-Maclaurinの和公式の2つの解釈
@@ -1254,6 +1260,7 @@ $$
 $$
 
 が得られる($f(x)$ は急減少函数だと仮定してあった). 
+
 
 以上のように, **台形公式, Euler-Maclaurinの公式, Poissonの和公式は同一の数学的現象を異なる視点から眺めたものに過ぎないことがわかる!**
 

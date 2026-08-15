@@ -2797,6 +2797,8 @@ $$
 
 すなわち, $c=\log\sqrt{2\pi}$ であることがわかった. これで, Stirlingの公式($*$)が証明された. 
 
+<br><br>
+
 ```julia
 n = big"1000000"
 Float64(factorial(n)/(n^n*e^(-n)*√n)), √(2π)
@@ -2865,6 +2867,8 @@ $$
 \zeta(4) = \sum_{n=1}^\infty \frac{1}{n^4} = \frac{\pi^4}{90}.
 \qquad\QED
 $$
+
+<br><br><br><br>
 
 ```julia
 x = symbols("x")
@@ -3284,6 +3288,8 @@ $$
 
 以上をまとめると示したい公式が得られる. $\QED$
 
+<br><br>
+
 
 **問題(Theta zero value のモジュラー変換性):** $t>0$ に対して, $\ds \Theta(t)=\sum_{n\in\Z} e^{-\pi n^2 t} = 1 + 2\sum_{n=1}^\infty e^{-\pi n^2 t}$ とおくと, 
 
@@ -3335,6 +3341,8 @@ $$
 で近似するとき, $N\geqq 10$ としなければ, 上と同じ精度が得られないことを確認せよ. $t>0$ が小さいときには $\Theta(t)$ の定義に基いて直接的に数値計算するより, モジュラー変換を経由して数値計算した方が効率的である. $\QED$
 
 次のセルを見よ.
+
+<br><br>
 
 ```julia
 Theta(t; N=20) = iszero(N) ? one(t) : 1 + 2*sum(n->e^(-π*n^2*t), 1:N)
